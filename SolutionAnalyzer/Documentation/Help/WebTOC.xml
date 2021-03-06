@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="9c621483-4731-4511-b387-05bffb0ea25f" Title="SolutionAnalyzer Namespace" Url="html/N-SolutionAnalyzer.htm">
+    <HelpTOCNode Id="f74f1d5c-bc21-4e95-93a4-30911bda0095" Title="MainWindowPane Class" Url="html/T-SolutionAnalyzer.MainWindowPane.htm">
+      <HelpTOCNode Title="MainWindowPane Members" Url="html/AllMembers.T-SolutionAnalyzer.MainWindowPane.htm" />
+      <HelpTOCNode Id="ab5fedea-cff4-433b-a6f6-e5517c14fe1d" Title="MainWindowPane Constructor " Url="html/Overload-SolutionAnalyzer.MainWindowPane.-ctor.htm">
+        <HelpTOCNode Title="MainWindowPane Constructor " Url="html/M-SolutionAnalyzer.MainWindowPane.-ctor.htm" />
+        <HelpTOCNode Title="MainWindowPane Constructor (MainWindowControl)" Url="html/M-SolutionAnalyzer.MainWindowPane.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b0838c71-5a58-4e6e-af5c-946234d2a8d7" Title="MainWindowPane Methods" Url="html/Methods.T-SolutionAnalyzer.MainWindowPane.htm">
+        <HelpTOCNode Title="OnToolWindowCreated Method " Url="html/M-SolutionAnalyzer.MainWindowPane.OnToolWindowCreated.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d8d4992d-9cb3-4f8e-9944-155d3100d110" Title="SolutionAnalyzerPackage Class" Url="html/T-SolutionAnalyzer.SolutionAnalyzerPackage.htm">
+      <HelpTOCNode Title="SolutionAnalyzerPackage Members" Url="html/AllMembers.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+      <HelpTOCNode Title="SolutionAnalyzerPackage Constructor " Url="html/M-SolutionAnalyzer.SolutionAnalyzerPackage.-ctor.htm" />
+      <HelpTOCNode Id="7ab04fa1-e85b-485e-b55c-57b9a85c1d5b" Title="SolutionAnalyzerPackage Fields" Url="html/Fields.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm">
+        <HelpTOCNode Title="GuidPackageOutputPane Field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.GuidPackageOutputPane.htm" />
+        <HelpTOCNode Title="GuidPackageOutputPaneString Field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.GuidPackageOutputPaneString.htm" />
+        <HelpTOCNode Title="PackageGuidString Field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.PackageGuidString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3c6fe761-2e13-4f2e-bebc-409f7b82f376" Title="SolutionAnalyzerPackage Methods" Url="html/Methods.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm">
+        <HelpTOCNode Title="GetAsyncToolWindowFactory Method " Url="html/M-SolutionAnalyzer.SolutionAnalyzerPackage.GetAsyncToolWindowFactory.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="c024ccf7-0c47-441d-a71e-0255c29138e4" Title="SolutionAnalyzer.Common Namespace" Url="html/N-SolutionAnalyzer.Common.htm">
+    <HelpTOCNode Id="af14df2c-5bdf-4b95-89cb-caa4c236e3c5" Title="AsyncCommand Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand.htm">
+      <HelpTOCNode Title="AsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+      <HelpTOCNode Title="AsyncCommand Constructor " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.-ctor.htm" />
+      <HelpTOCNode Id="9864f7bc-66ce-482a-a493-16531ec56091" Title="AsyncCommand Methods" Url="html/Methods.T-SolutionAnalyzer.Common.AsyncCommand.htm">
+        <HelpTOCNode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.CanExecute.htm" />
+        <HelpTOCNode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.ExecuteAsync.htm" />
+        <HelpTOCNode Title="RaiseCanExecuteChanged Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.RaiseCanExecuteChanged.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="247d29d9-4a42-48fc-a0ca-263eaee7134a" Title="AsyncCommand Events" Url="html/Events.T-SolutionAnalyzer.Common.AsyncCommand.htm">
+        <HelpTOCNode Title="CanExecuteChanged Event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand.CanExecuteChanged.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d4cff46b-c314-4873-a482-ee55b34e3fae" Title="AsyncCommand(T) Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm">
+      <HelpTOCNode Title="AsyncCommand(T) Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+      <HelpTOCNode Title="AsyncCommand(T) Constructor " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.-ctor.htm" />
+      <HelpTOCNode Id="7d1d6def-cb3a-404a-924a-97b69e8aa2de" Title="AsyncCommand(T) Methods" Url="html/Methods.T-SolutionAnalyzer.Common.AsyncCommand-1.htm">
+        <HelpTOCNode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.CanExecute.htm" />
+        <HelpTOCNode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.ExecuteAsync.htm" />
+        <HelpTOCNode Title="RaiseCanExecuteChanged Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.RaiseCanExecuteChanged.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4e1fda38-049f-47bf-90bf-ee5a6e041658" Title="AsyncCommand(T) Events" Url="html/Events.T-SolutionAnalyzer.Common.AsyncCommand-1.htm">
+        <HelpTOCNode Title="CanExecuteChanged Event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand-1.CanExecuteChanged.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="53d1bdc6-a4ad-48e7-acf8-fbbd6da0a26a" Title="IAsyncCommand Interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand.htm">
+      <HelpTOCNode Title="IAsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+      <HelpTOCNode Id="b26784e5-5f12-4d43-adb9-fc581632a070" Title="IAsyncCommand Methods" Url="html/Methods.T-SolutionAnalyzer.Common.IAsyncCommand.htm">
+        <HelpTOCNode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand.CanExecute.htm" />
+        <HelpTOCNode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand.ExecuteAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d9d40aae-956a-40c5-a217-be956713f938" Title="IAsyncCommand(T) Interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm">
+      <HelpTOCNode Title="IAsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+      <HelpTOCNode Id="aa0674d9-d188-4eb5-8c70-623ffbf323ff" Title="IAsyncCommand Methods" Url="html/Methods.T-SolutionAnalyzer.Common.IAsyncCommand-1.htm">
+        <HelpTOCNode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.CanExecute.htm" />
+        <HelpTOCNode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.ExecuteAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="012ed940-dc93-4991-9193-4bf8693e8b8b" Title="IErrorHandler Interface" Url="html/T-SolutionAnalyzer.Common.IErrorHandler.htm">
+      <HelpTOCNode Title="IErrorHandler Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+      <HelpTOCNode Id="37d7d45a-3329-46d0-91a0-067acdf6af5e" Title="IErrorHandler Methods" Url="html/Methods.T-SolutionAnalyzer.Common.IErrorHandler.htm">
+        <HelpTOCNode Title="HandleError Method " Url="html/M-SolutionAnalyzer.Common.IErrorHandler.HandleError.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2e48f819-f6d3-4688-b6bc-7637dadd5abc" Title="TaskUtilities Class" Url="html/T-SolutionAnalyzer.Common.TaskUtilities.htm">
+      <HelpTOCNode Title="TaskUtilities Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+      <HelpTOCNode Id="395edfbb-2df9-4335-aa9c-6f0daae0a094" Title="TaskUtilities Methods" Url="html/Methods.T-SolutionAnalyzer.Common.TaskUtilities.htm">
+        <HelpTOCNode Title="FireAndForgetSafeAsync Method " Url="html/M-SolutionAnalyzer.Common.TaskUtilities.FireAndForgetSafeAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="3f74bb3b-9438-4f6b-b5dc-a2f5eb7f6130" Title="SolutionAnalyzer.CommonData Namespace" Url="html/N-SolutionAnalyzer.CommonData.htm">
+    <HelpTOCNode Id="d56995b3-ff42-468c-8dff-34fb2ccad3ab" Title="ClassMemberDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm">
+      <HelpTOCNode Title="ClassMemberDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+      <HelpTOCNode Title="ClassMemberDataItem Constructor " Url="html/M-SolutionAnalyzer.CommonData.ClassMemberDataItem.-ctor.htm" />
+      <HelpTOCNode Title="ClassMemberDataItem Methods" Url="html/Methods.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+      <HelpTOCNode Id="5dfa01cb-2b1e-4de0-b8ed-7e6f2d3f2606" Title="ClassMemberDataItem Properties" Url="html/Properties.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm">
+        <HelpTOCNode Title="CodeType Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.CodeType.htm" />
+        <HelpTOCNode Title="EndLinePosition Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.EndLinePosition.htm" />
+        <HelpTOCNode Title="ImageCodeType Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.ImageCodeType.htm" />
+        <HelpTOCNode Title="LineCount Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.LineCount.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Name.htm" />
+        <HelpTOCNode Title="Parent Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Parent.htm" />
+        <HelpTOCNode Title="Selected Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Selected.htm" />
+        <HelpTOCNode Title="StartLine Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.StartLine.htm" />
+        <HelpTOCNode Title="StartLinePosition Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.StartLinePosition.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="ClassMemberDataItem.ECodeType Enumeration" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+    <HelpTOCNode Title="ELanguage Enumeration" Url="html/T-SolutionAnalyzer.CommonData.ELanguage.htm" />
+    <HelpTOCNode Id="aa14cacc-b9dc-4036-8366-e186dc85a762" Title="FileDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.FileDataItem.htm">
+      <HelpTOCNode Title="FileDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+      <HelpTOCNode Title="FileDataItem Constructor " Url="html/M-SolutionAnalyzer.CommonData.FileDataItem.-ctor.htm" />
+      <HelpTOCNode Id="c951129a-fc0b-41a7-b6bc-387f296e733b" Title="FileDataItem Methods" Url="html/Methods.T-SolutionAnalyzer.CommonData.FileDataItem.htm">
+        <HelpTOCNode Title="SortClassMembers Method " Url="html/M-SolutionAnalyzer.CommonData.FileDataItem.SortClassMembers.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="beed058f-d6a8-41de-8bf2-8dd368aa71bb" Title="FileDataItem Properties" Url="html/Properties.T-SolutionAnalyzer.CommonData.FileDataItem.htm">
+        <HelpTOCNode Title="ClassCount Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.ClassCount.htm" />
+        <HelpTOCNode Title="ClassMembers Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.ClassMembers.htm" />
+        <HelpTOCNode Title="DocumentId Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.DocumentId.htm" />
+        <HelpTOCNode Title="FullPath Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.FullPath.htm" />
+        <HelpTOCNode Title="Image Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Image.htm" />
+        <HelpTOCNode Title="Language Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Language.htm" />
+        <HelpTOCNode Title="LineCount Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.LineCount.htm" />
+        <HelpTOCNode Title="MemberCount Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.MemberCount.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Name.htm" />
+        <HelpTOCNode Title="Parent Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Parent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f3e92693-f69e-451e-b125-a21214fc55be" Title="ProjectDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.ProjectDataItem.htm">
+      <HelpTOCNode Title="ProjectDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+      <HelpTOCNode Title="ProjectDataItem Constructor " Url="html/M-SolutionAnalyzer.CommonData.ProjectDataItem.-ctor.htm" />
+      <HelpTOCNode Id="bbf0025a-df77-4c63-9887-09e994f0312a" Title="ProjectDataItem Methods" Url="html/Methods.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm">
+        <HelpTOCNode Title="SortCodeSourceFiles Method " Url="html/M-SolutionAnalyzer.CommonData.ProjectDataItem.SortCodeSourceFiles.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8cf2dc3e-2641-495e-9ef2-5dff2dcf8bad" Title="ProjectDataItem Properties" Url="html/Properties.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm">
+        <HelpTOCNode Title="CodeSourceFiles Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.CodeSourceFiles.htm" />
+        <HelpTOCNode Title="Files Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Files.htm" />
+        <HelpTOCNode Title="ImageLang Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.ImageLang.htm" />
+        <HelpTOCNode Title="Language Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Language.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Name.htm" />
+        <HelpTOCNode Title="ProjectId Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.ProjectId.htm" />
+        <HelpTOCNode Title="SummaryLines Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.SummaryLines.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="fdfffcff-1233-418f-8ff3-7299e3cd0963" Title="SolutionAnalyzer.Views Namespace" Url="html/N-SolutionAnalyzer.Views.htm">
+    <HelpTOCNode Id="061a01dc-51e9-44d7-bd6f-054f3790755c" Title="MainWindowControl Class" Url="html/T-SolutionAnalyzer.Views.MainWindowControl.htm">
+      <HelpTOCNode Title="MainWindowControl Members" Url="html/AllMembers.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+      <HelpTOCNode Title="MainWindowControl Constructor " Url="html/M-SolutionAnalyzer.Views.MainWindowControl.-ctor.htm" />
+      <HelpTOCNode Title="MainWindowControl Methods" Url="html/Methods.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+      <HelpTOCNode Id="8e5fb316-cdc4-46fe-8ea3-5863c40cc08c" Title="MainWindowControl Properties" Url="html/Properties.T-SolutionAnalyzer.Views.MainWindowControl.htm">
+        <HelpTOCNode Title="Package Property " Url="html/P-SolutionAnalyzer.Views.MainWindowControl.Package.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MainWindowControl Events" Url="html/Events.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="7751492a-4c14-4859-9d2c-34018d0db4f3" Title="QuickLoadingControl Class" Url="html/T-SolutionAnalyzer.Views.QuickLoadingControl.htm">
+      <HelpTOCNode Title="QuickLoadingControl Members" Url="html/AllMembers.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+      <HelpTOCNode Title="QuickLoadingControl Constructor " Url="html/M-SolutionAnalyzer.Views.QuickLoadingControl.-ctor.htm" />
+      <HelpTOCNode Title="QuickLoadingControl Methods" Url="html/Methods.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+      <HelpTOCNode Title="QuickLoadingControl Properties" Url="html/Properties.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+      <HelpTOCNode Title="QuickLoadingControl Events" Url="html/Events.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AsyncCommand class">
+    <HelpKINode Title="AsyncCommand Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+    <HelpKINode Title="AsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+    <HelpKINode Title="about AsyncCommand class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.Common.AsyncCommand.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsyncCommand(Of T) class">
+    <HelpKINode Title="AsyncCommand(T) Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="AsyncCommand(T) Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="about AsyncCommand(Of T) class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsyncCommand(Of T).AsyncCommand constructor" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.-ctor.htm" />
+  <HelpKINode Title="AsyncCommand(Of T).CanExecute method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.CanExecute.htm" />
+  <HelpKINode Title="AsyncCommand(Of T).CanExecuteChanged event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand-1.CanExecuteChanged.htm" />
+  <HelpKINode Title="AsyncCommand(Of T).ExecuteAsync method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.ExecuteAsync.htm" />
+  <HelpKINode Title="AsyncCommand(Of T).RaiseCanExecuteChanged method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.RaiseCanExecuteChanged.htm" />
+  <HelpKINode Title="AsyncCommand.AsyncCommand constructor" Url="html/M-SolutionAnalyzer.Common.AsyncCommand.-ctor.htm" />
+  <HelpKINode Title="AsyncCommand.CanExecute method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand.CanExecute.htm" />
+  <HelpKINode Title="AsyncCommand.CanExecuteChanged event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand.CanExecuteChanged.htm" />
+  <HelpKINode Title="AsyncCommand.ExecuteAsync method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand.ExecuteAsync.htm" />
+  <HelpKINode Title="AsyncCommand.RaiseCanExecuteChanged method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand.RaiseCanExecuteChanged.htm" />
+  <HelpKINode Title="AsyncCommand&lt;T&gt; class">
+    <HelpKINode Title="AsyncCommand(T) Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="AsyncCommand(T) Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="about AsyncCommand&lt;T&gt; class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsyncCommand&lt;T&gt;.AsyncCommand constructor" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.-ctor.htm" />
+  <HelpKINode Title="AsyncCommand&lt;T&gt;.CanExecute method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.CanExecute.htm" />
+  <HelpKINode Title="AsyncCommand&lt;T&gt;.CanExecuteChanged event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand-1.CanExecuteChanged.htm" />
+  <HelpKINode Title="AsyncCommand&lt;T&gt;.ExecuteAsync method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.ExecuteAsync.htm" />
+  <HelpKINode Title="AsyncCommand&lt;T&gt;.RaiseCanExecuteChanged method" Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.RaiseCanExecuteChanged.htm" />
+  <HelpKINode Title="CanExecute method">
+    <HelpKINode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.CanExecute.htm" />
+    <HelpKINode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.CanExecute.htm" />
+    <HelpKINode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand.CanExecute.htm" />
+    <HelpKINode Title="CanExecute Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.CanExecute.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CanExecuteChanged event">
+    <HelpKINode Title="CanExecuteChanged Event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand.CanExecuteChanged.htm" />
+    <HelpKINode Title="CanExecuteChanged Event" Url="html/E-SolutionAnalyzer.Common.AsyncCommand-1.CanExecuteChanged.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClassCount property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.ClassCount.htm" />
+  <HelpKINode Title="ClassMemberDataItem class">
+    <HelpKINode Title="ClassMemberDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+    <HelpKINode Title="ClassMemberDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+    <HelpKINode Title="about ClassMemberDataItem class" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.CommonData.ClassMemberDataItem.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClassMemberDataItem.ClassMemberDataItem constructor" Url="html/M-SolutionAnalyzer.CommonData.ClassMemberDataItem.-ctor.htm" />
+  <HelpKINode Title="ClassMemberDataItem.CodeType property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.CodeType.htm" />
+  <HelpKINode Title="ClassMemberDataItem.ECodeType enumeration" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+  <HelpKINode Title="ClassMemberDataItem.EndLinePosition property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.EndLinePosition.htm" />
+  <HelpKINode Title="ClassMemberDataItem.ImageCodeType property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.ImageCodeType.htm" />
+  <HelpKINode Title="ClassMemberDataItem.LineCount property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.LineCount.htm" />
+  <HelpKINode Title="ClassMemberDataItem.Name property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Name.htm" />
+  <HelpKINode Title="ClassMemberDataItem.Parent property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Parent.htm" />
+  <HelpKINode Title="ClassMemberDataItem.Selected property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Selected.htm" />
+  <HelpKINode Title="ClassMemberDataItem.StartLine property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.StartLine.htm" />
+  <HelpKINode Title="ClassMemberDataItem.StartLinePosition property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.StartLinePosition.htm" />
+  <HelpKINode Title="ClassMembers property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.ClassMembers.htm" />
+  <HelpKINode Title="CodeSourceFiles property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.CodeSourceFiles.htm" />
+  <HelpKINode Title="CodeType property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.CodeType.htm" />
+  <HelpKINode Title="Constructor enumeration member" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+  <HelpKINode Title="Constructor field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.Constructor.htm" />
+  <HelpKINode Title="CSharp enumeration member" Url="html/T-SolutionAnalyzer.CommonData.ELanguage.htm" />
+  <HelpKINode Title="CSharp field" Url="html/F-SolutionAnalyzer.CommonData.ELanguage.CSharp.htm" />
+  <HelpKINode Title="DocumentId property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.DocumentId.htm" />
+  <HelpKINode Title="ECodeType.Constructor field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.Constructor.htm" />
+  <HelpKINode Title="ECodeType.Method field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.Method.htm" />
+  <HelpKINode Title="ECodeType.None field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.None.htm" />
+  <HelpKINode Title="ECodeType.Property field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.Property.htm" />
+  <HelpKINode Title="ELanguage enumeration" Url="html/T-SolutionAnalyzer.CommonData.ELanguage.htm" />
+  <HelpKINode Title="ELanguage.CSharp field" Url="html/F-SolutionAnalyzer.CommonData.ELanguage.CSharp.htm" />
+  <HelpKINode Title="ELanguage.None field" Url="html/F-SolutionAnalyzer.CommonData.ELanguage.None.htm" />
+  <HelpKINode Title="ELanguage.VisualBasic field" Url="html/F-SolutionAnalyzer.CommonData.ELanguage.VisualBasic.htm" />
+  <HelpKINode Title="EndLinePosition property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.EndLinePosition.htm" />
+  <HelpKINode Title="ExecuteAsync method">
+    <HelpKINode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.ExecuteAsync.htm" />
+    <HelpKINode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.ExecuteAsync.htm" />
+    <HelpKINode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.IAsyncCommand.ExecuteAsync.htm" />
+    <HelpKINode Title="ExecuteAsync Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.ExecuteAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileDataItem class">
+    <HelpKINode Title="FileDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+    <HelpKINode Title="FileDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+    <HelpKINode Title="about FileDataItem class" Url="html/T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.CommonData.FileDataItem.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileDataItem.ClassCount property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.ClassCount.htm" />
+  <HelpKINode Title="FileDataItem.ClassMembers property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.ClassMembers.htm" />
+  <HelpKINode Title="FileDataItem.DocumentId property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.DocumentId.htm" />
+  <HelpKINode Title="FileDataItem.FileDataItem constructor" Url="html/M-SolutionAnalyzer.CommonData.FileDataItem.-ctor.htm" />
+  <HelpKINode Title="FileDataItem.FullPath property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.FullPath.htm" />
+  <HelpKINode Title="FileDataItem.Image property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Image.htm" />
+  <HelpKINode Title="FileDataItem.Language property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Language.htm" />
+  <HelpKINode Title="FileDataItem.LineCount property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.LineCount.htm" />
+  <HelpKINode Title="FileDataItem.MemberCount property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.MemberCount.htm" />
+  <HelpKINode Title="FileDataItem.Name property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Name.htm" />
+  <HelpKINode Title="FileDataItem.Parent property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Parent.htm" />
+  <HelpKINode Title="FileDataItem.SortClassMembers method" Url="html/M-SolutionAnalyzer.CommonData.FileDataItem.SortClassMembers.htm" />
+  <HelpKINode Title="Files property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Files.htm" />
+  <HelpKINode Title="FireAndForgetSafeAsync method" Url="html/M-SolutionAnalyzer.Common.TaskUtilities.FireAndForgetSafeAsync.htm" />
+  <HelpKINode Title="FullPath property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.FullPath.htm" />
+  <HelpKINode Title="GetAsyncToolWindowFactory method" Url="html/M-SolutionAnalyzer.SolutionAnalyzerPackage.GetAsyncToolWindowFactory.htm" />
+  <HelpKINode Title="GuidPackageOutputPane field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.GuidPackageOutputPane.htm" />
+  <HelpKINode Title="GuidPackageOutputPaneString field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.GuidPackageOutputPaneString.htm" />
+  <HelpKINode Title="HandleError method" Url="html/M-SolutionAnalyzer.Common.IErrorHandler.HandleError.htm" />
+  <HelpKINode Title="IAsyncCommand interface">
+    <HelpKINode Title="IAsyncCommand Interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+    <HelpKINode Title="IAsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+    <HelpKINode Title="IAsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+    <HelpKINode Title="about IAsyncCommand interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAsyncCommand(Of T) interface">
+    <HelpKINode Title="IAsyncCommand(T) Interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+    <HelpKINode Title="about IAsyncCommand(Of T) interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAsyncCommand(Of T).CanExecute method" Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.CanExecute.htm" />
+  <HelpKINode Title="IAsyncCommand(Of T).ExecuteAsync method" Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.ExecuteAsync.htm" />
+  <HelpKINode Title="IAsyncCommand.CanExecute method" Url="html/M-SolutionAnalyzer.Common.IAsyncCommand.CanExecute.htm" />
+  <HelpKINode Title="IAsyncCommand.ExecuteAsync method" Url="html/M-SolutionAnalyzer.Common.IAsyncCommand.ExecuteAsync.htm" />
+  <HelpKINode Title="IAsyncCommand&lt;T&gt; interface">
+    <HelpKINode Title="IAsyncCommand(T) Interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+    <HelpKINode Title="about IAsyncCommand&lt;T&gt; interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAsyncCommand&lt;T&gt;.CanExecute method" Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.CanExecute.htm" />
+  <HelpKINode Title="IAsyncCommand&lt;T&gt;.ExecuteAsync method" Url="html/M-SolutionAnalyzer.Common.IAsyncCommand-1.ExecuteAsync.htm" />
+  <HelpKINode Title="IErrorHandler interface">
+    <HelpKINode Title="IErrorHandler Interface" Url="html/T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+    <HelpKINode Title="IErrorHandler Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+    <HelpKINode Title="about IErrorHandler interface" Url="html/T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IErrorHandler.HandleError method" Url="html/M-SolutionAnalyzer.Common.IErrorHandler.HandleError.htm" />
+  <HelpKINode Title="Image property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Image.htm" />
+  <HelpKINode Title="ImageCodeType property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.ImageCodeType.htm" />
+  <HelpKINode Title="ImageLang property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.ImageLang.htm" />
+  <HelpKINode Title="Language property">
+    <HelpKINode Title="Language Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Language.htm" />
+    <HelpKINode Title="Language Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Language.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LineCount property">
+    <HelpKINode Title="LineCount Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.LineCount.htm" />
+    <HelpKINode Title="LineCount Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.LineCount.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindowControl class">
+    <HelpKINode Title="MainWindowControl Class" Url="html/T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="MainWindowControl Members" Url="html/AllMembers.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="about MainWindowControl class" Url="html/T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.Views.MainWindowControl.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindowControl.MainWindowControl constructor" Url="html/M-SolutionAnalyzer.Views.MainWindowControl.-ctor.htm" />
+  <HelpKINode Title="MainWindowControl.Package property" Url="html/P-SolutionAnalyzer.Views.MainWindowControl.Package.htm" />
+  <HelpKINode Title="MainWindowPane class">
+    <HelpKINode Title="MainWindowPane Class" Url="html/T-SolutionAnalyzer.MainWindowPane.htm" />
+    <HelpKINode Title="MainWindowPane Members" Url="html/AllMembers.T-SolutionAnalyzer.MainWindowPane.htm" />
+    <HelpKINode Title="about MainWindowPane class" Url="html/T-SolutionAnalyzer.MainWindowPane.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.MainWindowPane.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-SolutionAnalyzer.MainWindowPane.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.MainWindowPane.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindowPane.MainWindowPane constructor" Url="html/Overload-SolutionAnalyzer.MainWindowPane.-ctor.htm" />
+  <HelpKINode Title="MainWindowPane.OnToolWindowCreated method" Url="html/M-SolutionAnalyzer.MainWindowPane.OnToolWindowCreated.htm" />
+  <HelpKINode Title="MemberCount property" Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.MemberCount.htm" />
+  <HelpKINode Title="Method enumeration member" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+  <HelpKINode Title="Method field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.Method.htm" />
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="Name Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Name.htm" />
+    <HelpKINode Title="Name Property " Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Name.htm" />
+    <HelpKINode Title="Name Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Name.htm" />
+  </HelpKINode>
+  <HelpKINode Title="None enumeration member">
+    <HelpKINode Title="ClassMemberDataItem.ECodeType Enumeration" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+    <HelpKINode Title="ELanguage Enumeration" Url="html/T-SolutionAnalyzer.CommonData.ELanguage.htm" />
+  </HelpKINode>
+  <HelpKINode Title="None field">
+    <HelpKINode Title="None Field" Url="html/F-SolutionAnalyzer.CommonData.ELanguage.None.htm" />
+    <HelpKINode Title="None Field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.None.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnToolWindowCreated method" Url="html/M-SolutionAnalyzer.MainWindowPane.OnToolWindowCreated.htm" />
+  <HelpKINode Title="Package property" Url="html/P-SolutionAnalyzer.Views.MainWindowControl.Package.htm" />
+  <HelpKINode Title="PackageGuidString field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.PackageGuidString.htm" />
+  <HelpKINode Title="Parent property">
+    <HelpKINode Title="Parent Property " Url="html/P-SolutionAnalyzer.CommonData.FileDataItem.Parent.htm" />
+    <HelpKINode Title="Parent Property " Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Parent.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProjectDataItem class">
+    <HelpKINode Title="ProjectDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+    <HelpKINode Title="ProjectDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+    <HelpKINode Title="about ProjectDataItem class" Url="html/T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.CommonData.ProjectDataItem.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProjectDataItem.CodeSourceFiles property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.CodeSourceFiles.htm" />
+  <HelpKINode Title="ProjectDataItem.Files property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Files.htm" />
+  <HelpKINode Title="ProjectDataItem.ImageLang property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.ImageLang.htm" />
+  <HelpKINode Title="ProjectDataItem.Language property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Language.htm" />
+  <HelpKINode Title="ProjectDataItem.Name property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.Name.htm" />
+  <HelpKINode Title="ProjectDataItem.ProjectDataItem constructor" Url="html/M-SolutionAnalyzer.CommonData.ProjectDataItem.-ctor.htm" />
+  <HelpKINode Title="ProjectDataItem.ProjectId property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.ProjectId.htm" />
+  <HelpKINode Title="ProjectDataItem.SortCodeSourceFiles method" Url="html/M-SolutionAnalyzer.CommonData.ProjectDataItem.SortCodeSourceFiles.htm" />
+  <HelpKINode Title="ProjectDataItem.SummaryLines property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.SummaryLines.htm" />
+  <HelpKINode Title="ProjectId property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.ProjectId.htm" />
+  <HelpKINode Title="Property enumeration member" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+  <HelpKINode Title="Property field" Url="html/F-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.Property.htm" />
+  <HelpKINode Title="QuickLoadingControl class">
+    <HelpKINode Title="QuickLoadingControl Class" Url="html/T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="QuickLoadingControl Members" Url="html/AllMembers.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="about QuickLoadingControl class" Url="html/T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.Views.QuickLoadingControl.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+  </HelpKINode>
+  <HelpKINode Title="QuickLoadingControl.QuickLoadingControl constructor" Url="html/M-SolutionAnalyzer.Views.QuickLoadingControl.-ctor.htm" />
+  <HelpKINode Title="RaiseCanExecuteChanged method">
+    <HelpKINode Title="RaiseCanExecuteChanged Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand.RaiseCanExecuteChanged.htm" />
+    <HelpKINode Title="RaiseCanExecuteChanged Method " Url="html/M-SolutionAnalyzer.Common.AsyncCommand-1.RaiseCanExecuteChanged.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Selected property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.Selected.htm" />
+  <HelpKINode Title="SolutionAnalyzer namespace" Url="html/N-SolutionAnalyzer.htm" />
+  <HelpKINode Title="SolutionAnalyzer.Common namespace" Url="html/N-SolutionAnalyzer.Common.htm" />
+  <HelpKINode Title="SolutionAnalyzer.Common.AsyncCommand class">
+    <HelpKINode Title="AsyncCommand Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+    <HelpKINode Title="AsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Common.AsyncCommand(Of T) class">
+    <HelpKINode Title="AsyncCommand(T) Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="AsyncCommand(T) Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Common.AsyncCommand&lt;T&gt; class">
+    <HelpKINode Title="AsyncCommand(T) Class" Url="html/T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+    <HelpKINode Title="AsyncCommand(T) Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.AsyncCommand-1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Common.IAsyncCommand interface">
+    <HelpKINode Title="IAsyncCommand Interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+    <HelpKINode Title="IAsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+    <HelpKINode Title="IAsyncCommand Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IAsyncCommand.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Common.IAsyncCommand(Of T) interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+  <HelpKINode Title="SolutionAnalyzer.Common.IAsyncCommand&lt;T&gt; interface" Url="html/T-SolutionAnalyzer.Common.IAsyncCommand-1.htm" />
+  <HelpKINode Title="SolutionAnalyzer.Common.IErrorHandler interface">
+    <HelpKINode Title="IErrorHandler Interface" Url="html/T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+    <HelpKINode Title="IErrorHandler Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.IErrorHandler.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Common.TaskUtilities class">
+    <HelpKINode Title="TaskUtilities Class" Url="html/T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+    <HelpKINode Title="TaskUtilities Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.CommonData namespace" Url="html/N-SolutionAnalyzer.CommonData.htm" />
+  <HelpKINode Title="SolutionAnalyzer.CommonData.ClassMemberDataItem class">
+    <HelpKINode Title="ClassMemberDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+    <HelpKINode Title="ClassMemberDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ClassMemberDataItem.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType enumeration" Url="html/T-SolutionAnalyzer.CommonData.ClassMemberDataItem.ECodeType.htm" />
+  <HelpKINode Title="SolutionAnalyzer.CommonData.ELanguage enumeration" Url="html/T-SolutionAnalyzer.CommonData.ELanguage.htm" />
+  <HelpKINode Title="SolutionAnalyzer.CommonData.FileDataItem class">
+    <HelpKINode Title="FileDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+    <HelpKINode Title="FileDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.FileDataItem.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.CommonData.ProjectDataItem class">
+    <HelpKINode Title="ProjectDataItem Class" Url="html/T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+    <HelpKINode Title="ProjectDataItem Members" Url="html/AllMembers.T-SolutionAnalyzer.CommonData.ProjectDataItem.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.MainWindowPane class">
+    <HelpKINode Title="MainWindowPane Class" Url="html/T-SolutionAnalyzer.MainWindowPane.htm" />
+    <HelpKINode Title="MainWindowPane Members" Url="html/AllMembers.T-SolutionAnalyzer.MainWindowPane.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.SolutionAnalyzerPackage class">
+    <HelpKINode Title="SolutionAnalyzerPackage Class" Url="html/T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+    <HelpKINode Title="SolutionAnalyzerPackage Members" Url="html/AllMembers.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Views namespace" Url="html/N-SolutionAnalyzer.Views.htm" />
+  <HelpKINode Title="SolutionAnalyzer.Views.MainWindowControl class">
+    <HelpKINode Title="MainWindowControl Class" Url="html/T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+    <HelpKINode Title="MainWindowControl Members" Url="html/AllMembers.T-SolutionAnalyzer.Views.MainWindowControl.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzer.Views.QuickLoadingControl class">
+    <HelpKINode Title="QuickLoadingControl Class" Url="html/T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+    <HelpKINode Title="QuickLoadingControl Members" Url="html/AllMembers.T-SolutionAnalyzer.Views.QuickLoadingControl.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzerPackage class">
+    <HelpKINode Title="SolutionAnalyzerPackage Class" Url="html/T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+    <HelpKINode Title="SolutionAnalyzerPackage Members" Url="html/AllMembers.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+    <HelpKINode Title="about SolutionAnalyzerPackage class" Url="html/T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+    <HelpKINode Title="constructor" Url="html/M-SolutionAnalyzer.SolutionAnalyzerPackage.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.SolutionAnalyzerPackage.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SolutionAnalyzerPackage.GetAsyncToolWindowFactory method" Url="html/M-SolutionAnalyzer.SolutionAnalyzerPackage.GetAsyncToolWindowFactory.htm" />
+  <HelpKINode Title="SolutionAnalyzerPackage.GuidPackageOutputPane field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.GuidPackageOutputPane.htm" />
+  <HelpKINode Title="SolutionAnalyzerPackage.GuidPackageOutputPaneString field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.GuidPackageOutputPaneString.htm" />
+  <HelpKINode Title="SolutionAnalyzerPackage.PackageGuidString field" Url="html/F-SolutionAnalyzer.SolutionAnalyzerPackage.PackageGuidString.htm" />
+  <HelpKINode Title="SolutionAnalyzerPackage.SolutionAnalyzerPackage constructor" Url="html/M-SolutionAnalyzer.SolutionAnalyzerPackage.-ctor.htm" />
+  <HelpKINode Title="SortClassMembers method" Url="html/M-SolutionAnalyzer.CommonData.FileDataItem.SortClassMembers.htm" />
+  <HelpKINode Title="SortCodeSourceFiles method" Url="html/M-SolutionAnalyzer.CommonData.ProjectDataItem.SortCodeSourceFiles.htm" />
+  <HelpKINode Title="StartLine property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.StartLine.htm" />
+  <HelpKINode Title="StartLinePosition property" Url="html/P-SolutionAnalyzer.CommonData.ClassMemberDataItem.StartLinePosition.htm" />
+  <HelpKINode Title="SummaryLines property" Url="html/P-SolutionAnalyzer.CommonData.ProjectDataItem.SummaryLines.htm" />
+  <HelpKINode Title="TaskUtilities class">
+    <HelpKINode Title="TaskUtilities Class" Url="html/T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+    <HelpKINode Title="TaskUtilities Members" Url="html/AllMembers.T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+    <HelpKINode Title="about TaskUtilities class" Url="html/T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-SolutionAnalyzer.Common.TaskUtilities.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TaskUtilities.FireAndForgetSafeAsync method" Url="html/M-SolutionAnalyzer.Common.TaskUtilities.FireAndForgetSafeAsync.htm" />
+  <HelpKINode Title="VisualBasic enumeration member" Url="html/T-SolutionAnalyzer.CommonData.ELanguage.htm" />
+  <HelpKINode Title="VisualBasic field" Url="html/F-SolutionAnalyzer.CommonData.ELanguage.VisualBasic.htm" />
+</HelpKI>

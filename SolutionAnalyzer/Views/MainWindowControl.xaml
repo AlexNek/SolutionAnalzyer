@@ -1,0 +1,312 @@
+﻿<UserControl x:Class="SolutionAnalyzer.Views.MainWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:ViewModels="clr-namespace:SolutionAnalyzer.ViewModels"
+             xmlns:AttachedCommandBehavior="clr-namespace:AttachedCommandBehavior;assembly=AttachedCommandBehavior"
+             Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
+             Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance {x:Type ViewModels:MainWindowControlVm}}"
+             d:DesignHeight="300" d:DesignWidth="1200"
+             >
+    <UserControl.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button" >
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="3" />
+                </Style>
+            </Style.Resources>
+            <Setter Property="BorderBrush" Value="#FF4A90E2" />
+        </Style>
+
+        <DataTemplate x:Key="headerTemplate">
+            <Border>
+                <TextBlock Text="{Binding .}" RenderTransformOrigin="0.5,0.5" Margin="0,20,0,0">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="-90"/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Border>
+        </DataTemplate>
+        
+
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <DockPanel  Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}}">
+                <!--Buttons line-->
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button  ToolTip="Refresh projects" Command="{Binding CommandRefresh}" Width="100" Margin="5,0" 
+                             Style="{StaticResource RoundedButtonStyle}">
+                        <StackPanel Orientation="Horizontal" Width="95" >
+                            <Image Source="pack://application:,,,/SolutionAnalyzer;component/Images/refresh.png" Width="16"/>
+                            <TextBlock Text="Refresh All"/>
+                        </StackPanel>
+                    </Button>
+                    <Button  ToolTip="Refresh File" Command="{Binding CommandRefreshSelected}" Width="100" Margin="5,0" 
+                             Style="{StaticResource RoundedButtonStyle}">
+                        <StackPanel Orientation="Horizontal" Width="95" >
+                            <Image Source="pack://application:,,,/SolutionAnalyzer;component/Images/refresh-sel.png" Width="16"/>
+                            <TextBlock Text="Refresh File"/>
+                        </StackPanel>
+                    </Button>
+                    <Button  ToolTip="Create new File" Command="{Binding CommandNewClassPart}" Width="100" Margin="5,0" 
+                             Style="{StaticResource RoundedButtonStyle}">
+                        <StackPanel Orientation="Horizontal" Width="95" >
+                            <Image Source="pack://application:,,,/SolutionAnalyzer;component/Images/new-file.png" Width="16"/>
+                            <TextBlock Text="Create new"/>
+                        </StackPanel>
+                    </Button>
+                    <Button  ToolTip="Move selected to new File" Command="{Binding CommandMoveToNewClassPart}" Width="100" Margin="5,0"
+                             Style="{StaticResource RoundedButtonStyle}">
+                        <StackPanel Orientation="Horizontal" Width="95" >
+                            <Image Source="pack://application:,,,/SolutionAnalyzer;component/Images/move-to.png" Width="16"/>
+                            <TextBlock Text="Move to new"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <DockPanel DockPanel.Dock="Top" >
+                    <TextBlock Margin="5" Text="{Binding CurrentSelectionText}"/>
+                    <TextBlock Margin="5" Text="{Binding ClassMemberSelectionText}"/>
+                </DockPanel>
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <!--Projects-->
+                        <Expander ExpandDirection="Right" 
+                                      Header="Projects" 
+                                      IsExpanded="True" 
+                                      ToolTip="Project List" 
+                                      DockPanel.Dock="Left"
+                                      UseLayoutRounding="True"  
+                                      HeaderTemplate="{StaticResource headerTemplate}" BorderBrush="#FF04A9FF" >
+                            <xcdg:DataGridControl  
+                                          ItemsSource="{Binding CodeSourceProjects}" 
+                                          IsCopyCommandEnabled="True" 
+                                          AutoCreateColumns ="False"
+                                          ReadOnly="True" 
+                                          NavigationBehavior="RowOrCell" 
+                                          SelectedItem="{Binding SelectedProject}"
+                                          IsManipulationEnabled="True" 
+                                          ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                                          ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                                <xcdg:DataGridControl.Columns>
+
+                                    <xcdg:Column FieldName="ImageLang"  Title="" Width="16" 
+                                         CellHorizontalContentAlignment="Center" CellVerticalContentAlignment="Center"
+                                         Description="Code Type" MaxWidth="16" MinWidth="16" ReadOnly="True"
+                                         AllowSort="False" AllowGroup="False" CanBeCurrentWhenReadOnly="False"  />
+                                    <xcdg:Column FieldName="Name" Title="Name"
+                                         CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                         ReadOnly="True"/>
+                                    <xcdg:Column FieldName="Files" Title="Files" Width="40"
+                                                 CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                 ReadOnly="True"/>
+                                    <xcdg:Column FieldName="SummaryLines" Title="Lines" Width="50"
+                                                 CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                 ReadOnly="True"/>
+
+                                </xcdg:DataGridControl.Columns>
+                                
+                                <xcdg:DataGridControl.View>
+                                    <!--Set Row Height-->
+                                    <xcdg:TableflowView ContainerHeight="18" AreHeadersSticky="False" VerticalGridLineBrush="LightGray" VerticalGridLineThickness="1" />
+                                </xcdg:DataGridControl.View>
+                                
+                                <xcdg:DataGridControl.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Test1" />
+                                        <MenuItem Header="Test2"  />
+                                    </ContextMenu>
+                                </xcdg:DataGridControl.ContextMenu>
+                                <xcdg:DataGridControl.Resources>
+                                    <Style TargetType="{x:Type xcdg:TableViewScrollViewer}">
+                                        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                                        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                                    </Style>
+                                    <Style TargetType="{x:Type xcdg:HierarchicalGroupByControl}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style>
+                                </xcdg:DataGridControl.Resources>
+
+                            </xcdg:DataGridControl>
+                        </Expander>
+                        <!--Files-->
+                        <Expander ExpandDirection="Right" 
+                              Header="Files" 
+                              
+                              IsExpanded="True" 
+                              ToolTip="File list" 
+                              UseLayoutRounding="True"  
+                              DockPanel.Dock="Left"
+                              HeaderTemplate="{StaticResource headerTemplate}" BorderBrush="#FF04A9FF" >
+                            <xcdg:DataGridControl  x:Name="gridControlFiles" Width="430"
+                                          ItemsSource="{Binding CodeSourceFiles}" 
+                                          IsCopyCommandEnabled="True" 
+                                          AutoCreateColumns ="False"
+                                          ReadOnly="True" 
+                                          
+                                          NavigationBehavior="RowOnly" 
+                                          IsManipulationEnabled="False" 
+                                          ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                                          ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                          SynchronizeSelectionWithCurrent="True" 
+                                          SelectedItem="{Binding SelectedFile}"
+                                          AttachedCommandBehavior:CommandBehavior.Event="MouseDoubleClick" 
+                                          AttachedCommandBehavior:CommandBehavior.Command="{Binding FilesRowDblClickCommand}"
+                                          AttachedCommandBehavior:CommandBehavior.CommandParameter="{Binding ElementName=gridControlFiles, Path=SelectedItem}">
+                                <xcdg:DataGridControl.Columns>
+
+                                    <xcdg:Column FieldName="Image"  Title="" Width="16" 
+                                         CellHorizontalContentAlignment="Center" CellVerticalContentAlignment="Center"
+                                         Description="Code Type" MaxWidth="16" MinWidth="16" ReadOnly="True"
+                                         AllowSort="False" AllowGroup="False" CanBeCurrentWhenReadOnly="False"  />
+                                    <xcdg:Column FieldName="Name" Title="Name" Width="250"
+                                         CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                         ReadOnly="True"/>
+                                    <xcdg:Column FieldName="LineCount" Title="Lines" Width="40"
+                                                     CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                     ReadOnly="True"/>
+                                    <xcdg:Column FieldName="ClassCount" Title="Classes" Width="40"
+                                                     CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                     ReadOnly="True"/>
+                                    <xcdg:Column FieldName="MemberCount" Title="Members" Width="40"
+                                                 CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                 ReadOnly="True"/>
+                                </xcdg:DataGridControl.Columns>
+                                
+                                <xcdg:DataGridControl.View>
+                                    <!--Set Row Height-->
+                                    <xcdg:TableflowView ContainerHeight="18" AreHeadersSticky="False" VerticalGridLineBrush="LightGray" VerticalGridLineThickness="1" />
+                                </xcdg:DataGridControl.View>
+
+                                <xcdg:DataGridControl.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Refresh this" Command="{Binding CommandRefreshSelected}"/>
+
+                                    </ContextMenu>
+                                </xcdg:DataGridControl.ContextMenu>
+                                <xcdg:DataGridControl.Resources>
+                                    <Style TargetType="{x:Type xcdg:TableViewScrollViewer}">
+                                        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                                        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                                    </Style>
+                                    <Style TargetType="{x:Type xcdg:HierarchicalGroupByControl}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style>
+                                </xcdg:DataGridControl.Resources>
+
+                            </xcdg:DataGridControl>
+                        </Expander>
+                        <!--Class Members-->
+                        <Expander ExpandDirection="Right" 
+                                      Header="Members" 
+                              
+                                      IsExpanded="True" 
+                                      UseLayoutRounding="True"  
+                                      Width="Auto"
+                                      HeaderTemplate="{StaticResource headerTemplate}" BorderBrush="#FF04A9FF" IsEnabled="True" >
+                            <xcdg:DataGridControl  x:Name="gridControlMembers"
+                                          ItemsSource="{Binding ClassMembers}" 
+                                          SelectedItem="{Binding SelectedClassMember}"
+                                          CurrentItem=""
+                                          IsCopyCommandEnabled="True" 
+                                          AutoCreateColumns ="False"
+                                          ReadOnly="False" 
+                                          NavigationBehavior="RowOrCell" 
+                                          
+                                          IsManipulationEnabled="True" 
+                                          ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                                          ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                
+                                          SelectionMode="Extended"
+                                          >
+                                <AttachedCommandBehavior:CommandBehaviorCollection.Behaviors>
+                                    <AttachedCommandBehavior:BehaviorBinding 
+                                            Event="MouseDoubleClick" 
+                                            Command="{Binding ClassMemberRowDblClickCommand}"
+                                            CommandParameter="{Binding ElementName=gridControlMembers, Path=SelectedItem}"
+                                            />
+                                    <AttachedCommandBehavior:BehaviorBinding 
+                                            Event="SelectionChanged" 
+                                            Command="{Binding SelectionChangedCommand}"
+                                            CommandParameter="{Binding ElementName=gridControlMembers, Path=SelectedItems}"
+                                        />
+
+                                </AttachedCommandBehavior:CommandBehaviorCollection.Behaviors>
+                                <xcdg:DataGridControl.Columns>
+                                    <xcdg:Column FieldName="." Title="" Width="20">
+                                        <xcdg:Column.CellContentTemplate>
+                                            <DataTemplate>
+                                                <CheckBox IsChecked="{Binding DataContext.Selected
+                                                        ,UpdateSourceTrigger=PropertyChanged, 
+                                                        Mode=TwoWay, 
+                                                        RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type xcdg:DataCell}, AncestorLevel=1}}"
+                                                              />
+                                            </DataTemplate>
+                                        </xcdg:Column.CellContentTemplate>
+                                        <!--Don't work - no display only as editor-->
+                                        <!--<xcdg:Column.CellEditor>
+                                                <xcdg:CellEditor>
+                                                    <xcdg:CellEditor.EditTemplate>
+                                                        <DataTemplate>
+                                                            <CheckBox IsChecked="{Binding Selected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                        </DataTemplate>
+                                                    </xcdg:CellEditor.EditTemplate>
+                                                </xcdg:CellEditor>
+                                            </xcdg:Column.CellEditor>-->
+                                    </xcdg:Column>
+
+                                    <xcdg:Column FieldName="ImageCodeType"  Title="" Width="16" 
+                                                     CellHorizontalContentAlignment="Center" CellVerticalContentAlignment="Center"
+                                                     Description="Code Type" MaxWidth="16" MinWidth="16" ReadOnly="True"
+                                                     AllowSort="False" AllowGroup="False" CanBeCurrentWhenReadOnly="False"  />
+
+                                    <xcdg:Column FieldName="Name" Title="Name" Width="250"
+                                                     CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                     ReadOnly="True"/>
+
+                                    <xcdg:Column FieldName="StartLine" Title="Start" Width="40"
+                                                     CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                     ReadOnly="True"/>
+                                    <xcdg:Column FieldName="LineCount" Title="Lines" Width="40"
+                                                     CellHorizontalContentAlignment="Left" CellVerticalContentAlignment="Center" 
+                                                     ReadOnly="True"/>
+
+                                </xcdg:DataGridControl.Columns>
+
+                                <xcdg:DataGridControl.View>
+                                    <!--Set Row Height-->
+                                    <xcdg:TableflowView ContainerHeight="18" AreHeadersSticky="False" VerticalGridLineBrush="LightGray" VerticalGridLineThickness="1" />
+                                </xcdg:DataGridControl.View>
+
+                                <xcdg:DataGridControl.Resources>
+                                    <Style TargetType="{x:Type xcdg:TableViewScrollViewer}">
+                                        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                                        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                                    </Style>
+                                    <Style TargetType="{x:Type xcdg:HierarchicalGroupByControl}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style>
+                                </xcdg:DataGridControl.Resources>
+                                <xcdg:DataGridControl.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Set check flag on selections" Command="{Binding CommandSetFlag}" />
+                                        <MenuItem Header="Reset check flag on selections" Command="{Binding CommandResetFlag}"/>
+                                        <MenuItem Header="Move checked to the new file" Command="{Binding CommandMoveToNewClassPart}"/>
+                                    </ContextMenu>
+                                </xcdg:DataGridControl.ContextMenu>
+                            </xcdg:DataGridControl>
+                        </Expander>
+                    </StackPanel>
+                </DockPanel>
+
+            </DockPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

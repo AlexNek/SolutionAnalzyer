@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30803.129
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionAnalyzer", "SolutionAnalyzer\SolutionAnalyzer.csproj", "{DF9F7167-844B-48FE-BD28-CA57AE1356AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xceed.Wpf.DataGrid", "Xceed.Wpf.DataGrid\Xceed.Wpf.DataGrid.csproj", "{D36EC3EA-70DA-450C-A679-B48D18E380D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xceed.Wpf.Toolkit", "Xceed.Wpf.Toolkit\Xceed.Wpf.Toolkit.csproj", "{5A515BCB-FD21-481B-B12E-0F8C822B444C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{BE9025E0-6AB7-4B58-BC46-685976BFA783}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionAnalyzer\Documentation\HowToMain.md = SolutionAnalyzer\Documentation\HowToMain.md
+		SolutionAnalyzer\readme.md = SolutionAnalyzer\readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{95CFEB4E-BC70-43B0-8366-699634C24A56}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionAnalyzer\Documentation\Images\main-screen.png = SolutionAnalyzer\Documentation\Images\main-screen.png
+		SolutionAnalyzer\Documentation\Images\main-window.png = SolutionAnalyzer\Documentation\Images\main-window.png
+		SolutionAnalyzer\Documentation\Images\menu-edit.png = SolutionAnalyzer\Documentation\Images\menu-edit.png
+		SolutionAnalyzer\Documentation\Images\menu-tools.png = SolutionAnalyzer\Documentation\Images\menu-tools.png
+		SolutionAnalyzer\Documentation\Images\new-class-part.png = SolutionAnalyzer\Documentation\Images\new-class-part.png
+		SolutionAnalyzer\Documentation\Images\project-collapsed.png = SolutionAnalyzer\Documentation\Images\project-collapsed.png
+		SolutionAnalyzer\Documentation\Images\select-method.png = SolutionAnalyzer\Documentation\Images\select-method.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{4D59C266-5659-4721-868C-763FCCDAB81D}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionAnalyzer\Documentation\Help\index.html = SolutionAnalyzer\Documentation\Help\index.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF9F7167-844B-48FE-BD28-CA57AE1356AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9F7167-844B-48FE-BD28-CA57AE1356AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9F7167-844B-48FE-BD28-CA57AE1356AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9F7167-844B-48FE-BD28-CA57AE1356AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D36EC3EA-70DA-450C-A679-B48D18E380D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D36EC3EA-70DA-450C-A679-B48D18E380D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D36EC3EA-70DA-450C-A679-B48D18E380D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D36EC3EA-70DA-450C-A679-B48D18E380D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A515BCB-FD21-481B-B12E-0F8C822B444C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A515BCB-FD21-481B-B12E-0F8C822B444C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A515BCB-FD21-481B-B12E-0F8C822B444C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A515BCB-FD21-481B-B12E-0F8C822B444C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95CFEB4E-BC70-43B0-8366-699634C24A56} = {BE9025E0-6AB7-4B58-BC46-685976BFA783}
+		{4D59C266-5659-4721-868C-763FCCDAB81D} = {BE9025E0-6AB7-4B58-BC46-685976BFA783}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4CB8171-CEA2-4395-9168-CD84EDAAF58E}
+	EndGlobalSection
+EndGlobal
