@@ -123,8 +123,8 @@ partial class TestClass
 
 - all *using* will be copied too.
 
-- File grid and Members grid have context menu.
+- file grid and members grid have context menu.
 
-- it is possible to select class members like in Windows explorer with *Ctrl* and *Shift* keys.
+- it is possible to select a class members like in Windows explorer with *Ctrl* and *Shift* keys.
   and after it use context menu item *Set check flag on selections*. 
 
