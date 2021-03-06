@@ -7,12 +7,12 @@ All refactoring actions was very slowly so I decide to split large classes in on
 For this task I have written Visual Studio package. 
 The package window has command panel *(1)*, information panel (2), project info panel (3), files in project info panel (4), methods into selected class panel (5).
 
-![image1](SolutionAnalyzer/Documentation/images/main-screen.png)
+![image1](SolutionAnalyzer/documentation/images/main-screen.png)
 
 Methods could be selected and selected methods could be moved into a new part of the class.
 
-For software developer I describe [possible troubles](SolutionAnalyzer/Documentation/HowToMain.md) by developing a VS Package and create 
-[documentation](SolutionAnalyzer/Documentation/Help/index.html) for my VS Package
+For software developer I describe [possible troubles](SolutionAnalyzer/documentation/HowToMain.md) by developing a VS Package and create 
+[documentation](SolutionAnalyzer/documentation/help/index.html) for my VS Package
 
 ## Limitations ##
 
