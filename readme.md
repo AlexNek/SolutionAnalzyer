@@ -7,12 +7,12 @@ All refactoring actions was very slowly so I decide to split large classes in on
 For this task I have written Visual Studio package. 
 The package window has command panel *(1)*, information panel (2), project info panel (3), files in project info panel (4), methods into selected class panel (5).
 
-![image1](Documentation/images/main-screen.png)
+![image1](SolutionAnalyzer/Documentation/images/main-screen.png)
 
 Methods could be selected and selected methods could be moved into a new part of the class.
 
-For software developer I describe [possible troubles](Documentation/HowToMain.md) by developing a VS Package and create 
-[documentation](Documentation/Help/index.html) for my VS Package
+For software developer I describe [possible troubles](SolutionAnalyzer/Documentation/HowToMain.md) by developing a VS Package and create 
+[documentation](SolutionAnalyzer/Documentation/Help/index.html) for my VS Package
 
 ## Limitations ##
 
@@ -43,18 +43,18 @@ I need to use MS-PL licence too.
 
 ## How to work
 First, you need to open solution analyzer helper tool window. You can do it from Visual Studio menu *Tools* 
-![image menu 2](documentation/images/menu-tools.png)
+![image menu 2](SolutionAnalyzer/documentation/images/menu-tools.png)
 
 or from Visual Studio menu *Edit/Other Windows* 
-![image menu 1](documentation/images/menu-edit.png)
+![image menu 1](SolutionAnalyzer/documentation/images/menu-edit.png)
 
 Pay attention that in your version could be another menu sub items as in screen shot.
 
 Then you can see the tools window if any project is open:
-![image menu 3](documentation/images/main-window.png)
+![image menu 3](SolutionAnalyzer/documentation/images/main-window.png)
 
 After project selection is possible to collapse project panel:
-![image menu 4](documentation/images/project-collapsed.png)
+![image menu 4](SolutionAnalyzer/documentation/images/project-collapsed.png)
 Selected project name and file name shown into the info line.
 
 Into the Files panel it is possible to see all files into the selected project sorted by the lines. 
@@ -66,7 +66,7 @@ If class member has some comments immediately before or after then theses commen
 After row double click class member will be selected into editor.
 
 When you want to split the class, select one or more methods and press button move to new
-![image menu 5](documentation/images/select-method.png)
+![image menu 5](SolutionAnalyzer/documentation/images/select-method.png)
 
 Then instead the one class 
 
@@ -91,7 +91,7 @@ class TestClass : TestBase
 </pre>
 we will have two
 
-![image menu 5](documentation/images/new-class-part.png)
+![image menu 5](SolutionAnalyzer/documentation/images/new-class-part.png)
 
 *TestClass.cs*
 <pre>
