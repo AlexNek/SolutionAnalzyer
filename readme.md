@@ -70,7 +70,7 @@ When you want to split the class, select one or more methods and press button mo
 
 Then instead the one class 
 
-<pre>
+```C#
 class TestClass : TestBase
 {
     // comment before Method1
@@ -88,13 +88,13 @@ class TestClass : TestBase
 
     }   //test3
 }
-</pre>
+```
 we will have two
 
 ![image menu 5](SolutionAnalyzer/documentation/images/new-class-part.png)
 
 *TestClass.cs*
-<pre>
+```C#
 partial class TestClass : TestBase
 {
     /// <summary>
@@ -105,10 +105,10 @@ partial class TestClass : TestBase
     {
     } //test3
 }
-</pre>
+```
 
 *TestClass.Part01.cs*
-<pre>
+```C#
 partial class TestClass
 {
     // comment before Method1
@@ -117,7 +117,7 @@ partial class TestClass
 
     }//comment after Method1
 }
-</pre>
+```
 
 **Notes**:
 
