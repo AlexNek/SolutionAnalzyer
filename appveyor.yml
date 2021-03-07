@@ -16,8 +16,3 @@ before_build:
   - nuget restore
 build:
   verbosity: minimal
-artifacts:
-- path: https://www.nuget.org/packages/AttachedCommandBehavior/2.0.0?_src=template
-  name: AttachedCommandBehavior
-- path: https://www.nuget.org/packages/MvvmLightLibs/5.4.1.1?_src=template
-  name: MvvmLightLibs
