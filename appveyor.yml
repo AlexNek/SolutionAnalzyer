@@ -1,0 +1,21 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+image: Previous Visual Studio 2019
+platform: Any CPU
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+nuget:
+  project_feed: true
+build:
+  verbosity: minimal
+artifacts:
+- path: https://www.nuget.org/packages/AttachedCommandBehavior/2.0.0?_src=template
+  name: AttachedCommandBehavior
+- path: https://www.nuget.org/packages/MvvmLightLibs/5.4.1.1?_src=template
+  name: MvvmLightLibs
