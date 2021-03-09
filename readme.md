@@ -12,7 +12,7 @@ The package window has command panel *(1)*, information panel (2), project info 
 Methods could be selected and selected methods could be moved into a new part of the class.
 
 For software developer I describe [possible troubles](SolutionAnalyzer/documentation/HowToMain.md) by developing a VS Package and create
-<a href="https://github.com/AlexNek/SolutionAnalzyer/blob/develop/SolutionAnalyzer/documentation/help/index.html" target="_blank">documentation</a> for my VS Package
+<a href="https://alexnek.github.io/SolutionAnalzyer/">documentation</a> for my VS Package
 
 ## Limitations ##
 
