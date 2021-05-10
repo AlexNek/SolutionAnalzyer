@@ -246,8 +246,12 @@ namespace SolutionAnalyzer
                 Projects dteProjects = solutionDte.Projects;
                 foreach (EnvDTE.Project dteProject in dteProjects)
                 {
-                    ELanguage language = GetLanguage(dteProject.CodeModel.Language);
-                    
+                    ELanguage language = ELanguage.None;
+                    if (dteProject.CodeModel != null)
+                    {
+                        language = GetLanguage(dteProject.CodeModel.Language);
+                    }
+
                     ProjectDataItem projectItem = new ProjectDataItem();
                     projectItem.Name = dteProject.Name;
                     projectItem.Language = language;
@@ -537,6 +541,7 @@ namespace SolutionAnalyzer
             try
             {
                 //this.AddProject_Async(p);
+                //OnNotify(new NotifyData { NotifyType = NotifyData.ENotifyType. });
             }
             catch (Exception exception)
             {
