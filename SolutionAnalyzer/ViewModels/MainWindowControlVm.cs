@@ -39,6 +39,11 @@ namespace SolutionAnalyzer.ViewModels
         private readonly IErrorHandler _errorHandler;
 
         /// <summary>
+        /// The class member selection text
+        /// </summary>
+        private string _classMemberSelectionText;
+
+        /// <summary>
         /// The current selection text
         /// </summary>
         private string _currentSelectionText;
@@ -47,11 +52,6 @@ namespace SolutionAnalyzer.ViewModels
         /// The debug text
         /// </summary>
         private string _debugText;
-
-        /// <summary>
-        /// The class member selection text
-        /// </summary>
-        private string _classMemberSelectionText;
 
         /// <summary>
         /// The ignore update selection
@@ -93,13 +93,18 @@ namespace SolutionAnalyzer.ViewModels
             CommandRefresh = new AsyncCommand(ExecRefresh, CanRefresh, _errorHandler);
             CommandRefreshSelected = new AsyncCommand(ExecRefreshSelectedAsync, CanRefresh, _errorHandler);
             CommandMoveToNewClassPart = new AsyncCommand(ExecMoveToNewClassPartAsync, CanRefresh, _errorHandler);
+            CommandReloadProjects = new AsyncCommand(ExecCommandReloadProjectsAsync, CanRefresh, _errorHandler);
+            CommandScanProjects = new AsyncCommand(ExecCommandScanProjectsAsync, CanRefresh, _errorHandler);
 
             CommandSetFlag = new RelayCommand(ExecSetFlag);
             CommandResetFlag = new RelayCommand(ExecResetFlag);
 
-            SelectionChangedCommand = new RelayCommand<IList<object>>(ExecSelectionChanged);
+            ClassMemberSelectionChangedCommand = new RelayCommand<IList<object>>(ExecClassMemberSelectionChanged);
             FilesRowDblClickCommand = new AsyncCommand<FileDataItem>(ExecFilesRowDblClickAsync, CanRunFilesDblClick, _errorHandler);
-            ClassMemberRowDblClickCommand = new AsyncCommand<ClassMemberDataItem>(ExecClassMemberRowDblClickAsync, CanRunClassMemberDblClick, _errorHandler);
+            ClassMemberRowDblClickCommand = new AsyncCommand<ClassMemberDataItem>(
+                ExecClassMemberRowDblClickAsync,
+                CanRunClassMemberDblClick,
+                _errorHandler);
         }
 
         /// <summary>
@@ -113,16 +118,6 @@ namespace SolutionAnalyzer.ViewModels
         }
 
         /// <summary>
-        /// Determines whether allowed command execution for the files grid row double click.
-        /// </summary>
-        /// <param name="arg">The argument.</param>
-        /// <returns><c>true</c> if this command can run; otherwise, <c>false</c>.</returns>
-        private bool CanRunFilesDblClick(FileDataItem arg)
-        {
-            return true;
-        }
-
-        /// <summary>
         /// Determines whether allowed command execution for the class members grid row double click.
         /// </summary>
         /// <param name="arg">The argument.</param>
@@ -133,20 +128,29 @@ namespace SolutionAnalyzer.ViewModels
         }
 
         /// <summary>
-        /// Execute command files row double click as an asynchronous operation.
-        /// Open document related to the clicked row
+        /// Determines whether allowed command execution for the files grid row double click.
         /// </summary>
         /// <param name="arg">The argument.</param>
-        private async Task ExecFilesRowDblClickAsync(FileDataItem arg)
+        /// <returns><c>true</c> if this command can run; otherwise, <c>false</c>.</returns>
+        private bool CanRunFilesDblClick(FileDataItem arg)
         {
-            if (!ThreadHelper.CheckAccess())
-            {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-            }
+            return true;
+        }
 
-            VisualStudioWorkspace workspace = await VisualStudioHelper.GetVisualStudioWorkspaceAsync(_package);
-            workspace.OpenDocument(arg.DocumentId);
-            //await Task.FromResult(0);
+        /// <summary>
+        /// Handles the PropertyChanged event of the ClassMemberDataItem control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        private void ClassMemberDataItem_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ClassMemberDataItem.Selected))
+            {
+                Application.Current.Dispatcher.BeginInvoke(
+                    DispatcherPriority.Background,
+                    new Action(
+                        () => { UpdateClassMemberSelectionText(sender as ClassMemberDataItem); }));
+            }
         }
 
         /// <summary>
@@ -168,6 +172,56 @@ namespace SolutionAnalyzer.ViewModels
                 workspace.OpenDocument(arg.Parent.DocumentId);
                 VisualStudioHelper.OpenDocumentSelectTextBlock(arg.Parent.FullPath, arg.StartLinePosition, arg.EndLinePosition);
             }
+        }
+
+        private async Task ExecCommandReloadProjectsAsync()
+        {
+            if (!ThreadHelper.CheckAccess())
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            }
+            DoActionSolutionOpened();
+        }
+
+        private async Task ExecCommandScanProjectsAsync()
+        {
+            IVsStatusbar progressBar = VisualStudioHelper.InitProgress(out uint userId);
+            try
+            {
+                for (int i = 0; i < CodeSourceProjects.Count; i++)
+                {
+                    
+                    ProjectDataItem projectDataItem = CodeSourceProjects[i];
+                    progressBar.Progress(
+                        ref userId,
+                        1,
+                        $"Update project {projectDataItem.Name} lines count",
+                        (uint)i + 1,
+                        (uint)CodeSourceProjects.Count);
+                    await UpdateProjectAsync(projectDataItem);
+                }
+            }
+            finally
+            {
+                VisualStudioHelper.CloseProgress(progressBar, userId);
+            }
+        }
+
+        /// <summary>
+        /// Execute command files row double click as an asynchronous operation.
+        /// Open document related to the clicked row
+        /// </summary>
+        /// <param name="arg">The argument.</param>
+        private async Task ExecFilesRowDblClickAsync(FileDataItem arg)
+        {
+            if (!ThreadHelper.CheckAccess())
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            }
+
+            VisualStudioWorkspace workspace = await VisualStudioHelper.GetVisualStudioWorkspaceAsync(_package);
+            workspace.OpenDocument(arg.DocumentId);
+            //await Task.FromResult(0);
         }
 
         /// <summary>
@@ -258,7 +312,7 @@ namespace SolutionAnalyzer.ViewModels
         /// Executes command - grid selection changed.
         /// </summary>
         /// <param name="args">The arguments.</param>
-        private void ExecSelectionChanged(IList<object> args)
+        private void ExecClassMemberSelectionChanged(IList<object> args)
         {
             SelectedItems.Clear();
             foreach (ClassMemberDataItem item in args)
@@ -274,22 +328,6 @@ namespace SolutionAnalyzer.ViewModels
         private void ExecSetFlag()
         {
             SetMoveIncludeFlagBySelection(true);
-        }
-
-        /// <summary>
-        /// Handles the PropertyChanged event of the ClassMemberDataItem control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
-        private void ClassMemberDataItem_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(ClassMemberDataItem.Selected))
-            {
-                Application.Current.Dispatcher.BeginInvoke(
-                    DispatcherPriority.Background,
-                    new Action(
-                        () => { UpdateClassMemberSelectionText(sender as ClassMemberDataItem); }));
-            }
         }
 
         /// <summary>
@@ -373,9 +411,7 @@ namespace SolutionAnalyzer.ViewModels
                 case NotifyData.ENotifyType.None:
                     break;
                 case NotifyData.ENotifyType.SolutionOpened:
-                    RefreshCommandState();
-                    LoadProjects();
-                    DebugText = null;
+                    DoActionSolutionOpened();
                     break;
                 case NotifyData.ENotifyType.SolutionClosed:
                     RefreshCommandState();
@@ -383,6 +419,13 @@ namespace SolutionAnalyzer.ViewModels
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private void DoActionSolutionOpened()
+        {
+            RefreshCommandState();
+            LoadProjects();
+            DebugText = null;
         }
 
         /// <summary>
@@ -442,46 +485,10 @@ namespace SolutionAnalyzer.ViewModels
         /// </summary>
         private async Task UpdateFileAsync()
         {
-            await UpdateFileAsync(_selectedFile);
-        }
-
-        /// <summary>
-        /// Update file item as an asynchronous operation.
-        /// </summary>
-        /// <param name="fileDataItem">The file data item.</param>
-        private async Task UpdateFileItemAsync(FileDataItem fileDataItem)
-        {
-            VisualStudioWorkspace workspace = await VisualStudioHelper.GetVisualStudioWorkspaceAsync(_package);
-            Document? roslynDocument = workspace.CurrentSolution.GetDocument(fileDataItem.DocumentId);
-            if (roslynDocument != null)
+            if (_selectedFile != null)
             {
-                SyntaxTree? tree = await roslynDocument.GetSyntaxTreeAsync();
-                SyntaxNode? syntaxNode = await tree?.GetRootAsync();
-                if (syntaxNode != null)
-                {
-                    CsCodeClassFinderVisitor classFinderVisitor = new CsCodeClassFinderVisitor();
-
-                    SyntaxNodeWalker walker = new SyntaxNodeWalker(_package, fileDataItem);
-                    walker.Visit(syntaxNode, classFinderVisitor);
-
-                    FileLinePositionSpan lineSpan = syntaxNode.GetLocation().GetMappedLineSpan();
-                    //var sp = lineSpan.StartLinePosition;
-                    //var ep = lineSpan.EndLinePosition;
-                    fileDataItem.LineCount = lineSpan.Span.End.Line - lineSpan.Span.Start.Line + 1;
-                    fileDataItem.ClassCount = classFinderVisitor.ClassCount;
-                }
+                await UpdateFileAsync(_selectedFile);
             }
-
-            SelectedClassMember = null;
-            UpdateClassMemberSelectionText(null);
-        }
-
-        /// <summary>
-        /// Update selected project as an asynchronous operation.
-        /// </summary>
-        private async Task UpdateProjectMainAsync()
-        {
-            await UpdateProjectAsync(_selectedProject);
         }
 
         /// <summary>
@@ -540,6 +547,37 @@ namespace SolutionAnalyzer.ViewModels
         }
 
         /// <summary>
+        /// Update file item as an asynchronous operation.
+        /// </summary>
+        /// <param name="fileDataItem">The file data item.</param>
+        private async Task UpdateFileItemAsync(FileDataItem fileDataItem)
+        {
+            VisualStudioWorkspace workspace = await VisualStudioHelper.GetVisualStudioWorkspaceAsync(_package);
+            Document? roslynDocument = workspace.CurrentSolution.GetDocument(fileDataItem.DocumentId);
+            if (roslynDocument != null)
+            {
+                SyntaxTree? tree = await roslynDocument.GetSyntaxTreeAsync();
+                SyntaxNode? syntaxNode = await tree?.GetRootAsync();
+                if (syntaxNode != null)
+                {
+                    CsCodeClassFinderVisitor classFinderVisitor = new CsCodeClassFinderVisitor();
+
+                    SyntaxNodeWalker walker = new SyntaxNodeWalker(_package, fileDataItem);
+                    walker.Visit(syntaxNode, classFinderVisitor);
+
+                    FileLinePositionSpan lineSpan = syntaxNode.GetLocation().GetMappedLineSpan();
+                    //var sp = lineSpan.StartLinePosition;
+                    //var ep = lineSpan.EndLinePosition;
+                    fileDataItem.LineCount = lineSpan.Span.End.Line - lineSpan.Span.Start.Line + 1;
+                    fileDataItem.ClassCount = classFinderVisitor.ClassCount;
+                }
+            }
+
+            SelectedClassMember = null;
+            UpdateClassMemberSelectionText(null);
+        }
+
+        /// <summary>
         /// Update project as an asynchronous operation.
         /// </summary>
         /// <param name="project">The selected project.</param>
@@ -567,7 +605,7 @@ namespace SolutionAnalyzer.ViewModels
                 for (int i = 0; i < items.Count; i++)
                 {
                     FileDataItem fileDataItem = items[i];
-                    progressBar.Progress(ref userId, 1, "Calculate lines of code", (uint)i, (uint)items.Count - 1);
+                    progressBar.Progress(ref userId, 1, $"Calculate lines of code - {i:D2}.{fileDataItem.Name}", (uint)i, (uint)items.Count - 1);
                     project?.CodeSourceFiles.Add(fileDataItem);
 
                     await UpdateFileItemAsync(fileDataItem);
@@ -598,6 +636,23 @@ namespace SolutionAnalyzer.ViewModels
         }
 
         /// <summary>
+        /// Update selected project as an asynchronous operation.
+        /// </summary>
+        private async Task UpdateProjectMainAsync()
+        {
+            if (_selectedProject != null)
+            {
+                await UpdateProjectAsync(_selectedProject);
+            }
+        }
+
+        /// <summary>
+        /// Gets the class member row double click command.
+        /// </summary>
+        /// <value>The class member row double click command.</value>
+        public ICommand ClassMemberRowDblClickCommand { get; }
+
+        /// <summary>
         /// Gets the class members.
         /// </summary>
         /// <value>The class members.</value>
@@ -606,6 +661,23 @@ namespace SolutionAnalyzer.ViewModels
             get
             {
                 return SelectedFile?.ClassMembers;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the class member selection text.
+        /// </summary>
+        /// <value>The class member selection text.</value>
+        public string ClassMemberSelectionText
+        {
+            get
+            {
+                return _classMemberSelectionText;
+            }
+            set
+            {
+                _classMemberSelectionText = value;
+                RaisePropertyChanged();
             }
         }
 
@@ -651,11 +723,15 @@ namespace SolutionAnalyzer.ViewModels
         /// <value>The command refresh selected.</value>
         public ICommand CommandRefreshSelected { get; }
 
+        public ICommand CommandReloadProjects { get; }
+
         /// <summary>
         /// Gets the command  - reset selection flag.
         /// </summary>
         /// <value>The command reset flag.</value>
         public ICommand CommandResetFlag { get; }
+
+        public ICommand CommandScanProjects { get; }
 
         /// <summary>
         /// Gets the command - set selection flag.
@@ -702,29 +778,6 @@ namespace SolutionAnalyzer.ViewModels
         /// </summary>
         /// <value>The files row double click command.</value>
         public ICommand FilesRowDblClickCommand { get; }
-
-        /// <summary>
-        /// Gets or sets the class member selection text.
-        /// </summary>
-        /// <value>The class member selection text.</value>
-        public string ClassMemberSelectionText
-        {
-            get
-            {
-                return _classMemberSelectionText;
-            }
-            set
-            {
-                _classMemberSelectionText = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Gets the class member row double click command.
-        /// </summary>
-        /// <value>The class member row double click command.</value>
-        public ICommand ClassMemberRowDblClickCommand { get; }
 
         /// <summary>
         /// Gets or sets the package.
@@ -834,7 +887,7 @@ namespace SolutionAnalyzer.ViewModels
         /// Gets the selection changed command.
         /// </summary>
         /// <value>The selection changed command.</value>
-        public ICommand SelectionChangedCommand { get; }
+        public ICommand ClassMemberSelectionChangedCommand { get; }
 
         /// <summary>
         /// Gets the solution container.

@@ -120,8 +120,8 @@
                                 
                                 <xcdg:DataGridControl.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Test1" />
-                                        <MenuItem Header="Test2"  />
+                                        <MenuItem Header="Reload projects" Command="{Binding CommandReloadProjects}"/>
+                                        <MenuItem Header="Scan all projects" Command="{Binding CommandScanProjects}" />
                                     </ContextMenu>
                                 </xcdg:DataGridControl.ContextMenu>
                                 <xcdg:DataGridControl.Resources>
@@ -234,7 +234,7 @@
                                             />
                                     <AttachedCommandBehavior:BehaviorBinding 
                                             Event="SelectionChanged" 
-                                            Command="{Binding SelectionChangedCommand}"
+                                            Command="{Binding ClassMemberSelectionChangedCommand}"
                                             CommandParameter="{Binding ElementName=gridControlMembers, Path=SelectedItems}"
                                         />
 
