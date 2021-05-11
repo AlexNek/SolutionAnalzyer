@@ -146,6 +146,8 @@ namespace SolutionAnalyzer
         /// </summary>
         private SolutionEvents _solutionEvents;
 
+        private  string? _fullName = String.Empty;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="VsSolutionContainer"/> class.
         /// </summary>
@@ -519,6 +521,8 @@ namespace SolutionAnalyzer
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             IsSolutionOpened = true;
+            VisualStudioWorkspace workspace = VisualStudioHelper.GetVisualStudioWorkspace(_package);
+            _fullName = workspace.CurrentSolution.FilePath;
             OnNotify(new NotifyData { NotifyType = NotifyData.ENotifyType.SolutionOpened });
         }
 
@@ -528,6 +532,7 @@ namespace SolutionAnalyzer
         private void SolutionEventsAfterClosing()
         {
             IsSolutionOpened = false;
+            _fullName = String.Empty;
             OnNotify(new NotifyData { NotifyType = NotifyData.ENotifyType.SolutionClosed });
         }
 
@@ -562,8 +567,8 @@ namespace SolutionAnalyzer
         /// Solutions the events project renamed.
         /// </summary>
         /// <param name="p">The p.</param>
-        /// <param name="OldName">The old name.</param>
-        private void SolutionEventsProjectRenamed(EnvDTE.Project p, string OldName)
+        /// <param name="oldName">The old name.</param>
+        private void SolutionEventsProjectRenamed(EnvDTE.Project p, string oldName)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
         }
@@ -667,5 +672,13 @@ namespace SolutionAnalyzer
         /// </summary>
         /// <value><c>true</c> if this instance is solution opened; otherwise, <c>false</c>.</value>
         public bool IsSolutionOpened { get; private set; }
+
+        public string FullName
+        {
+            get
+            {
+                return _fullName;
+            }
+        }
     }
 }

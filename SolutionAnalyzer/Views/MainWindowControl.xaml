@@ -56,6 +56,13 @@
                             <TextBlock Text="Refresh File"/>
                         </StackPanel>
                     </Button>
+                    <Button  ToolTip="Export" Command="{Binding CommandExport}" Width="100" Margin="5,0" 
+                             Style="{StaticResource RoundedButtonStyle}">
+                        <StackPanel Orientation="Horizontal" Width="95" >
+                            <Image Source="pack://application:,,,/SolutionAnalyzer;component/Images/export.png" Width="16"/>
+                            <TextBlock Text="Export..."/>
+                        </StackPanel>
+                    </Button>
                     <Button  ToolTip="Create new File" Command="{Binding CommandNewClassPart}" Width="100" Margin="5,0" 
                              Style="{StaticResource RoundedButtonStyle}">
                         <StackPanel Orientation="Horizontal" Width="95" >

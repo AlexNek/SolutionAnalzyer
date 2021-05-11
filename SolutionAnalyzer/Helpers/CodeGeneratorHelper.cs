@@ -73,6 +73,12 @@ namespace SolutionAnalyzer.Helpers
         /// <param name="classMemberDataItems">The class member data items.</param>
         public async Task GenerateNewClassPartAsync(FileDataItem? fileDataItem, List<ClassMemberDataItem>? classMemberDataItems = null)
         {
+            IVsUIShell shellService = await _package.GetServiceAsync(typeof(SVsUIShell)) as IVsUIShell;
+            if (shellService != null)
+            {
+                shellService.SetWaitCursor();
+            }
+
             if (fileDataItem != null)
             {
                 List<ISyntaxNodeVisitor> visitors = new List<ISyntaxNodeVisitor>();

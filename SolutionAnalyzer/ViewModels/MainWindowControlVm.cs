@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.LanguageServices;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.Win32;
 
 using SolutionAnalyzer.CodeVisitors;
 using SolutionAnalyzer.Common;
@@ -99,7 +101,10 @@ namespace SolutionAnalyzer.ViewModels
             CommandSetFlag = new RelayCommand(ExecSetFlag);
             CommandResetFlag = new RelayCommand(ExecResetFlag);
 
+            CommandExport = new RelayCommand(ExecCommandExport, CanRefresh);
+
             ClassMemberSelectionChangedCommand = new RelayCommand<IList<object>>(ExecClassMemberSelectionChanged);
+
             FilesRowDblClickCommand = new AsyncCommand<FileDataItem>(ExecFilesRowDblClickAsync, CanRunFilesDblClick, _errorHandler);
             ClassMemberRowDblClickCommand = new AsyncCommand<ClassMemberDataItem>(
                 ExecClassMemberRowDblClickAsync,
@@ -153,6 +158,13 @@ namespace SolutionAnalyzer.ViewModels
             }
         }
 
+        private void DoActionSolutionOpened()
+        {
+            RefreshCommandState();
+            LoadProjects();
+            DebugText = null;
+        }
+
         /// <summary>
         /// Execute command class member row double click as an asynchronous operation.
         /// Open document and select area with class member
@@ -174,12 +186,53 @@ namespace SolutionAnalyzer.ViewModels
             }
         }
 
+        /// <summary>
+        /// Executes command - grid selection changed.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        private void ExecClassMemberSelectionChanged(IList<object> args)
+        {
+            SelectedItems.Clear();
+            foreach (ClassMemberDataItem item in args)
+            {
+                SelectedItems.Add(item);
+                //Trace.WriteLine("Selection:" + item.Name);
+            }
+        }
+
+        private void ExecCommandExport()
+        {
+            try
+            {
+                string solutionFullName = String.Empty;
+                if (_solutionContainer != null)
+                {
+                    solutionFullName = _solutionContainer.FullName;
+                }
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "XML file (*.xml)|*.xml";
+                saveFileDialog.InitialDirectory = Path.GetDirectoryName(solutionFullName);
+                saveFileDialog.FileName = Path.GetFileNameWithoutExtension(solutionFullName);
+                saveFileDialog.AddExtension = true;
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    ExportHelper.ExportXml(saveFileDialog.FileName, solutionFullName, CodeSourceProjects);
+                }
+            }
+            catch (Exception ex)
+            {
+                OutputWindowHelper.ExceptionWriteLine("Export", ex);
+            }
+        }
+
         private async Task ExecCommandReloadProjectsAsync()
         {
             if (!ThreadHelper.CheckAccess())
             {
                 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             }
+
             DoActionSolutionOpened();
         }
 
@@ -190,7 +243,6 @@ namespace SolutionAnalyzer.ViewModels
             {
                 for (int i = 0; i < CodeSourceProjects.Count; i++)
                 {
-                    
                     ProjectDataItem projectDataItem = CodeSourceProjects[i];
                     progressBar.Progress(
                         ref userId,
@@ -200,16 +252,18 @@ namespace SolutionAnalyzer.ViewModels
                         (uint)CodeSourceProjects.Count);
                     await UpdateProjectAsync(projectDataItem);
                 }
+
                 if (CodeSourceProjects.Count > 0)
                 {
                     List<ProjectDataItem> copyOfProjects = new List<ProjectDataItem>(CodeSourceProjects);
                     //sort descended order
-                    copyOfProjects.Sort((x, y) =>
-                        {
-                            int xSummaryLines = x.SummaryLines.HasValue ? x.SummaryLines.Value : 0;
-                            int ySummaryLines = y.SummaryLines.HasValue ? y.SummaryLines.Value : 0;
-                            return -xSummaryLines.CompareTo(ySummaryLines);
-                        });
+                    copyOfProjects.Sort(
+                        (x, y) =>
+                            {
+                                int xSummaryLines = x.SummaryLines.HasValue ? x.SummaryLines.Value : 0;
+                                int ySummaryLines = y.SummaryLines.HasValue ? y.SummaryLines.Value : 0;
+                                return -xSummaryLines.CompareTo(ySummaryLines);
+                            });
                     CodeSourceProjects.Clear();
                     foreach (ProjectDataItem projectDataItem in copyOfProjects)
                     {
@@ -325,20 +379,6 @@ namespace SolutionAnalyzer.ViewModels
         }
 
         /// <summary>
-        /// Executes command - grid selection changed.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        private void ExecClassMemberSelectionChanged(IList<object> args)
-        {
-            SelectedItems.Clear();
-            foreach (ClassMemberDataItem item in args)
-            {
-                SelectedItems.Add(item);
-                //Trace.WriteLine("Selection:" + item.Name);
-            }
-        }
-
-        /// <summary>
         /// Executes command - set selections flag.
         /// </summary>
         private void ExecSetFlag()
@@ -435,13 +475,6 @@ namespace SolutionAnalyzer.ViewModels
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        private void DoActionSolutionOpened()
-        {
-            RefreshCommandState();
-            LoadProjects();
-            DebugText = null;
         }
 
         /// <summary>
@@ -681,6 +714,12 @@ namespace SolutionAnalyzer.ViewModels
         }
 
         /// <summary>
+        /// Gets the selection changed command.
+        /// </summary>
+        /// <value>The selection changed command.</value>
+        public ICommand ClassMemberSelectionChangedCommand { get; }
+
+        /// <summary>
         /// Gets or sets the class member selection text.
         /// </summary>
         /// <value>The class member selection text.</value>
@@ -714,6 +753,8 @@ namespace SolutionAnalyzer.ViewModels
         /// </summary>
         /// <value>The code source projects.</value>
         public ObservableCollection<ProjectDataItem> CodeSourceProjects { get; } = new ObservableCollection<ProjectDataItem>();
+
+        public ICommand CommandExport { get; }
 
         /// <summary>
         /// Gets the command - move to the new class part.
@@ -898,12 +939,6 @@ namespace SolutionAnalyzer.ViewModels
                 }
             }
         }
-
-        /// <summary>
-        /// Gets the selection changed command.
-        /// </summary>
-        /// <value>The selection changed command.</value>
-        public ICommand ClassMemberSelectionChangedCommand { get; }
 
         /// <summary>
         /// Gets the solution container.

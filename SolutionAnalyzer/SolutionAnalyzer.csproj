@@ -79,6 +79,7 @@
     <Compile Include="CommonData\ProjectDataItem.cs" />
     <Compile Include="CommonData\FileDataItem.cs" />
     <Compile Include="CommonData\ELanguage.cs" />
+    <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="ViewModels\MainWindowControlVm.cs" />
     <Compile Include="Views\QuickLoadingControl.xaml.cs">
       <DependentUpon>QuickLoadingControl.xaml</DependentUpon>
@@ -174,6 +175,7 @@
     <Resource Include="Images\new-file.png" />
     <Resource Include="Images\refresh-sel.png" />
     <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\export.png" />
     <Content Include="Resources\MainWindowCommand.png" />
     <Resource Include="Images\empty.png" />
     <VSCTCompile Include="SolutionAnalyzerPackage.vsct">
