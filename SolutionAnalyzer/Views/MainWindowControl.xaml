@@ -132,6 +132,10 @@
                                     <Style TargetType="{x:Type xcdg:HierarchicalGroupByControl}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </Style>
+                                    <Style TargetType="{x:Type xcdg:DataCell}">
+                                        <Setter Property="ToolTip"
+                                                Value="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
+                                    </Style>
                                 </xcdg:DataGridControl.Resources>
 
                             </xcdg:DataGridControl>
@@ -198,6 +202,10 @@
                                     </Style>
                                     <Style TargetType="{x:Type xcdg:HierarchicalGroupByControl}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style>
+                                    <Style TargetType="{x:Type xcdg:DataCell}">
+                                        <Setter Property="ToolTip"
+                                                Value="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
                                     </Style>
                                 </xcdg:DataGridControl.Resources>
 
@@ -292,6 +300,10 @@
                                     </Style>
                                     <Style TargetType="{x:Type xcdg:HierarchicalGroupByControl}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
+                                    </Style>
+                                    <Style TargetType="{x:Type xcdg:DataCell}">
+                                        <Setter Property="ToolTip"
+                                                Value="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
                                     </Style>
                                 </xcdg:DataGridControl.Resources>
                                 <xcdg:DataGridControl.ContextMenu>
