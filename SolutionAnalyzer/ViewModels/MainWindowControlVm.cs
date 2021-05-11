@@ -200,6 +200,22 @@ namespace SolutionAnalyzer.ViewModels
                         (uint)CodeSourceProjects.Count);
                     await UpdateProjectAsync(projectDataItem);
                 }
+                if (CodeSourceProjects.Count > 0)
+                {
+                    List<ProjectDataItem> copyOfProjects = new List<ProjectDataItem>(CodeSourceProjects);
+                    //sort descended order
+                    copyOfProjects.Sort((x, y) =>
+                        {
+                            int xSummaryLines = x.SummaryLines.HasValue ? x.SummaryLines.Value : 0;
+                            int ySummaryLines = y.SummaryLines.HasValue ? y.SummaryLines.Value : 0;
+                            return -xSummaryLines.CompareTo(ySummaryLines);
+                        });
+                    CodeSourceProjects.Clear();
+                    foreach (ProjectDataItem projectDataItem in copyOfProjects)
+                    {
+                        CodeSourceProjects.Add(projectDataItem);
+                    }
+                }
             }
             finally
             {
