@@ -68,7 +68,7 @@ namespace SolutionAnalyzer.Helpers
         /// <param name="documentId"></param>
         /// <param name="syntaxNodeRoot">The syntax node root.</param>
         /// <param name="roslynDocument">The roslyn document.</param>
-        public static async void AddPartialToClassAsync(
+        public static async Task AddPartialToClassAsync(
             VisualStudioWorkspace workspace,
             DocumentId documentId)
         {
