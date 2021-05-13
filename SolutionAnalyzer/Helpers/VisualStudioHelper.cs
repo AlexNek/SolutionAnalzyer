@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ using Project = Microsoft.CodeAnalysis.Project;
 using Solution = Microsoft.CodeAnalysis.Solution;
 using Task = System.Threading.Tasks.Task;
 using TextDocument = EnvDTE.TextDocument;
+using Thread = System.Threading.Thread;
 
 namespace SolutionAnalyzer.Helpers
 {
@@ -60,28 +62,39 @@ namespace SolutionAnalyzer.Helpers
         }
 
         /// <summary>
-        /// Adds the partial keyword to the class.
+        /// Adds the partial keyword to the first class in file.
         /// </summary>
+        /// <param name="workspace">The workspace.</param>
+        /// <param name="documentId"></param>
         /// <param name="syntaxNodeRoot">The syntax node root.</param>
         /// <param name="roslynDocument">The roslyn document.</param>
-        /// <param name="workspace">The workspace.</param>
-        public static void AddPartialToClass(SyntaxNode syntaxNodeRoot, Document roslynDocument, VisualStudioWorkspace workspace)
+        public static async void AddPartialToClassAsync(
+            VisualStudioWorkspace workspace,
+            DocumentId documentId)
         {
+
+            Document roslynDocument = workspace.CurrentSolution.GetDocument(documentId);
+            SyntaxTree tree1 = await roslynDocument.GetSyntaxTreeAsync();
+            SyntaxNode syntaxNodeRoot = await tree1?.GetRootAsync();
+
             var nodesWithClassDirectives =
                 from node in syntaxNodeRoot.DescendantNodes()
                 where node.Kind() == SyntaxKind.ClassDeclaration
                 select node;
             int count = 0;
+            SyntaxNode syntaxNodeRootNew;
+            Document roslynDocumentNew;
             foreach (var syntaxNode in nodesWithClassDirectives)
             {
                 if (syntaxNode is ClassDeclarationSyntax classNode)
                 {
                     ClassDeclarationSyntax newclassDeclaration = classNode.AddModifiers(SyntaxFactory.Token(SyntaxKind.PartialKeyword));
-                    syntaxNodeRoot = syntaxNodeRoot.ReplaceNode(classNode, newclassDeclaration).NormalizeWhitespace();
-                    roslynDocument = roslynDocument.WithSyntaxRoot(syntaxNodeRoot);
-                    Solution? newSolution = roslynDocument?.Project.Solution;
+                    syntaxNodeRootNew = syntaxNodeRoot.ReplaceNode(classNode, newclassDeclaration).NormalizeWhitespace();
+                    roslynDocumentNew = roslynDocument.WithSyntaxRoot(syntaxNodeRootNew);
+                    Solution? solutionNew = roslynDocumentNew?.Project.Solution;
                     bool canApplyChange = workspace.CanApplyChange(ApplyChangesKind.ChangeDocument);
-                    bool applyChanges = workspace.TryApplyChanges(newSolution);
+                    bool applyChanges = workspace.TryApplyChanges(solutionNew);
+                    //Trace.WriteLine($"*-*AddPartialToClass TryApplyChanges {applyChanges}");
                 }
 
                 count++;
@@ -115,14 +128,16 @@ namespace SolutionAnalyzer.Helpers
         public static EditPoint GetEditPoint(TextDocument textDoc, int line, int column)
         {
             EditPoint editPoint = textDoc.StartPoint.CreateEditPoint();
+            Trace.WriteLine("End of file, line:" + textDoc.EndPoint.Line);
             try
             {
                 editPoint.MoveToLineAndOffset(line, column);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
+                OutputWindowHelper.ExceptionWriteLine($"Line {line}, column {column}",ex);
                 //ProjectData.SetProjectError(exception);
-                //throw;
+                throw;
             }
 
             return editPoint;
@@ -186,6 +201,7 @@ namespace SolutionAnalyzer.Helpers
             ThreadHelper.ThrowIfNotOnUIThread();
             //VSConstants.GUID_ProjectDesignerEditor
             IVsWindowFrame windowFrame = GetDocumentFrame(filePath);
+            Trace.WriteLine("*-*OpenDocumentSelectTextBlock");
 
             object docData;
             if (windowFrame != null)
@@ -328,7 +344,11 @@ namespace SolutionAnalyzer.Helpers
             TextDocument textDoc = (TextDocument)window.Document.Object();
             EditPoint ep1 = GetEditPoint(textDoc, startLinePosition.Value.Line + 1, startLinePosition.Value.Character + 1);
             EditPoint ep2 = GetEditPoint(textDoc, endLinePosition.Value.Line + 1, endLinePosition.Value.Character + 1);
-            ReplaceText(ep1, ep2, newText);
+            
+            if (ep1 != null && ep2 != null)
+            {
+                ReplaceText(ep1, ep2, newText);
+            }
 
             //Selection? selection = GetSelection(dteDocument);
             //if (selection == null)
@@ -340,7 +360,7 @@ namespace SolutionAnalyzer.Helpers
 
             ////fake delay for hiding return error
             //await System.Threading.Tasks.Task.Delay(10);
-            return await Task.FromResult<object?>(null);
+            return await Task.FromResult<object?>(new object());
         }
 
         /// <summary>

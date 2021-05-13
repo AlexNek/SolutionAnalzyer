@@ -114,14 +114,14 @@ namespace SolutionAnalyzer.Helpers
                                                                      IsClassPartialVisitor = isClassPartialVisitor,
                                                                      ClassNameInfoVisitor = classNameInfoVisitor
                                                                  };
-
+                        //class members will be copied here
                         string newFileContent = await GetNewClassPartBodyAsync(parameters, classMemberDataItems, fileDataItem.DocumentId);
                         if (string.IsNullOrEmpty(newFileContent))
                         {
                             Trace.WriteLine("Error by file generation");
                             VsShellUtilities.ShowMessageBox(
                                 _package,
-                                "Error by file generation",
+                                "Error by file generation. New file context is empty",
                                 "Error",
                                 OLEMSGICON.OLEMSGICON_WARNING,
                                 OLEMSGBUTTON.OLEMSGBUTTON_OK,
@@ -135,46 +135,23 @@ namespace SolutionAnalyzer.Helpers
                             {
                                 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
                             }
+                            
+                            VisualStudioHelper.AddNewFileToProject(_package, fileDataItem, newFullFileName, newFileContent);
 
                             if (classMemberDataItems != null && classMemberDataItems.Count > 0)
                             {
-                                if (!isClassPartialVisitor.IsClassPartial)
-                                {
-                                    VisualStudioHelper.AddPartialToClass(syntaxNodeRoot, roslynDocument, workspace);
-                                }
-
-                                VisualStudioHelper.AddNewFileToProject(_package, fileDataItem, newFullFileName, newFileContent);
-                                IVsStatusbar progressBar = VisualStudioHelper.InitProgress(out uint userId);
-                                try
-                                {
-                                    List<ClassMemberDataItem> copyOfDataMembers = new List<ClassMemberDataItem>(classMemberDataItems);
-
-                                    DTE2 dte = Package.GetGlobalService(typeof(DTE)) as DTE2;
-                                    ProjectItem projectItemDte = dte.Solution.FindProjectItem(fileDataItem.FullPath);
-                                    //We must delete from the end of file
-                                    copyOfDataMembers.Sort((x, y) => -x.StartLine.CompareTo(y.StartLine));
-                                    for (int i = 0; i < copyOfDataMembers.Count; i++)
-                                    {
-                                        ClassMemberDataItem classMemberDataItem = copyOfDataMembers[i];
-
-                                        progressBar.Progress(
-                                            ref userId,
-                                            1,
-                                            "Delete code for moved data members",
-                                            (uint)i,
-                                            (uint)copyOfDataMembers.Count - 1);
-                                        await VisualStudioHelper.ReplaceTextAsync(
-                                            projectItemDte,
-                                            classMemberDataItem.StartLinePosition,
-                                            classMemberDataItem.EndLinePosition,
-                                            String.Empty);
-                                    }
-                                }
-                                finally
-                                {
-                                    VisualStudioHelper.CloseProgress(progressBar, userId);
-                                }
+                                await DeleteClassMembers(fileDataItem, classMemberDataItems);
                             }
+                            else
+                            {
+                                OutputWindowHelper.WarningWriteLine("No data member selected, nothing to delete");
+                            }
+                            // Sometimes for the big files add partial keyword delete unexpected lines and break lines numbering, so place it after delete
+                            if (!isClassPartialVisitor.IsClassPartial)
+                            {
+                                await VisualStudioHelper.AddPartialToClassAsync(workspace, fileDataItem.DocumentId);
+                            }
+
                         }
                         catch (Exception ex)
                         {
@@ -189,6 +166,48 @@ namespace SolutionAnalyzer.Helpers
                         }
                     }
                 }
+            }
+        }
+
+        private static async Task DeleteClassMembers(FileDataItem fileDataItem, List<ClassMemberDataItem> classMemberDataItems)
+        {
+            IVsStatusbar progressBar = VisualStudioHelper.InitProgress(out uint userId);
+            try
+            {
+                List<ClassMemberDataItem> copyOfDataMembers = new List<ClassMemberDataItem>(classMemberDataItems);
+
+                DTE2 dte = Package.GetGlobalService(typeof(DTE)) as DTE2;
+                ProjectItem projectItemDte = dte.Solution.FindProjectItem(fileDataItem.FullPath);
+                if (copyOfDataMembers.Count > 1)
+                {
+                    //We must delete from the end of file, so sort in descendant order
+                    copyOfDataMembers.Sort((x, y) => -x.StartLine.CompareTo(y.StartLine));
+                }
+
+                for (int i = 0; i < copyOfDataMembers.Count; i++)
+                {
+                    ClassMemberDataItem classMemberDataItem = copyOfDataMembers[i];
+
+                    progressBar.Progress(
+                        ref userId,
+                        1,
+                        "Delete code for moved data members",
+                        (uint)i,
+                        (uint)copyOfDataMembers.Count - 1);
+                    await VisualStudioHelper.ReplaceTextAsync(
+                        projectItemDte,
+                        classMemberDataItem.StartLinePosition,
+                        classMemberDataItem.EndLinePosition,
+                        String.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                OutputWindowHelper.ExceptionWriteLine("Error by deleting selected members", ex);
+            }
+            finally
+            {
+                VisualStudioHelper.CloseProgress(progressBar, userId);
             }
         }
 
@@ -256,7 +275,7 @@ namespace SolutionAnalyzer.Helpers
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    OutputWindowHelper.ExceptionWriteLine("Error by new file generation", ex);
                 }
                 finally
                 {
@@ -280,11 +299,16 @@ namespace SolutionAnalyzer.Helpers
             List<ClassMemberDataItem>? classMemberDataItems,
             DocumentId documentId)
         {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException(nameof(parameters));
+            }
+
             bool isError = false;
             StringBuilder sb = new StringBuilder();
             foreach (string text in parameters.UsingInfoVisitor.Trivias)
             {
-                sb.AppendLine(text);
+                sb.Append(text);
             }
 
             foreach (string text in parameters.UsingInfoVisitor.Usings)
