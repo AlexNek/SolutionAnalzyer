@@ -165,6 +165,20 @@ namespace SolutionAnalyzer.ViewModels
             DebugText = null;
         }
 
+        private void DoActionSolutionClosed()
+        {
+            RefreshCommandState();
+            SelectedProject = null;
+            CodeSourceProjects.Clear();
+            RaisePropertyChanged(nameof(CodeSourceFiles));
+            RaisePropertyChanged(nameof(ClassMembers));
+
+            //references from SelectedProject - no sense to clear
+            //CodeSourceFiles?.Clear();
+            //ClassMembers?.Clear();
+            DebugText = null;
+        }
+
         /// <summary>
         /// Execute command class member row double click as an asynchronous operation.
         /// Open document and select area with class member
@@ -394,7 +408,7 @@ namespace SolutionAnalyzer.ViewModels
             ThreadHelper.ThrowIfNotOnUIThread();
 
             CodeSourceProjects.Clear();
-
+            
             IList<ProjectDataItem> items = new List<ProjectDataItem>();
             _solutionContainer?.GetProjects(items, null);
             foreach (ProjectDataItem projectDataItem in items)
@@ -470,7 +484,7 @@ namespace SolutionAnalyzer.ViewModels
                     DoActionSolutionOpened();
                     break;
                 case NotifyData.ENotifyType.SolutionClosed:
-                    RefreshCommandState();
+                    DoActionSolutionClosed();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -740,7 +754,7 @@ namespace SolutionAnalyzer.ViewModels
         /// Gets the source files.
         /// </summary>
         /// <value>The code source files.</value>
-        public ObservableCollection<FileDataItem> CodeSourceFiles
+        public ObservableCollection<FileDataItem>? CodeSourceFiles
         {
             get
             {
