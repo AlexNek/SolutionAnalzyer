@@ -128,3 +128,17 @@ partial class TestClass
 - it is possible to select a class members like in Windows explorer with *Ctrl* and *Shift* keys.
   and after it use context menu item *Set check flag on selections*. 
 
+## What's New
+### in Version 1.1
+
+New features:
+ - Export to XML
+ - Calculate lines for complete solution
+ - Project grid - new context menu
+
+Errors correction:
+
+- file header copied correctly
+- new file is not created if we not select part for move
+- clear grid by solution reopen
+- non stable function moving
