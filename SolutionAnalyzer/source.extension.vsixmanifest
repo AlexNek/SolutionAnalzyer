@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="SolutionAnalyzer.e9500052-090d-4c3d-a925-0bffd710c79e" Version="1.0" Language="en-US" Publisher="Alex Nek" />
+        <Identity Id="SolutionAnalyzer.e9500052-090d-4c3d-a925-0bffd710c79e" Version="1.1" Language="en-US" Publisher="Alex Nek" />
         <DisplayName>SolutionAnalyzer</DisplayName>
         <Description xml:space="preserve">SolutionAnalyzer VSIX Project.</Description>
         <Icon>Images\app-icon.png</Icon>
